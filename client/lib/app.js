@@ -1,0 +1,1 @@
+angular.module('trickle-webapp',['angular-meteor', 'ui.router']);

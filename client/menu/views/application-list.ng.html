@@ -1,0 +1,19 @@
+<div ng-controller="MenuItemsCtrl" class="">
+
+    <form>
+        <label for="">Name</label>
+        <input ng-model="newApp.name"/>
+        <label for="">Description</label>
+        <input ng-model="newApp.description"/>
+        <button ng-click="applications.save(newApp); newApp='';" >Add</button>
+    </form>
+
+    <ul>
+        <li ng-repeat="app in applications">
+            <a href="/{{app._id}}"><h3>{{app.name}}</h3></a>
+            <p>{{app.description}}</p>
+            <button ng-click="remove(app)">Delete</button>
+        </li>
+    </ul>
+    <p>Number of applicaitons {{ applications.length}} </p>
+</div>
