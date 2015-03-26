@@ -9,11 +9,11 @@ Meteor.startup(function(){
             {'name':'Breaking',
                 'description':'Gives you global news' },
             {'name':'Useful Info',
-                'description':'Gives you useful information' },
+                'description':'Gives you useful information' }
         ];
 
         for(var i = 0; i<applications.length; i++){
             Applicatons.insert({name: applications[i].name, description: applications[i].description});
         }
     }
-})
+});

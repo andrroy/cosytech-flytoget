@@ -3,10 +3,12 @@
 </head>
 
 <body>
-    <div ng-app="trickle-webapp">
+    <div ng-app="trickle-webapp" class="">
         <h1><a href="/overview">Home</a></h1>
 
         <!--Templates defined in stateProvider get rendered in this tag -->
         <div ui-view></div>
+
+        <meteor-include src="loginButtons"></meteor-include>
     </div>
 </body>

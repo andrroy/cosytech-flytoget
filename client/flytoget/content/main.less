@@ -1,0 +1,71 @@
+@import "colors";
+@import "profile";
+
+@navbar-height: 100px;
+@box-inset: 30px;
+@row-height: 300px;
+@row-height-sm: 230px;
+
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: "Roboto",sans-serif;
+  font-style: normal;
+  font-weight: 200;
+
+  color: white;
+
+  font-size: 20px;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.42857143;
+  background: url("img/bg.jpg") no-repeat left center;
+  background-size: cover;
+}
+
+ul{
+  list-style-type: none;
+}
+
+
+.navbar{
+  background: url("/img/header-lines.svg") no-repeat center center;
+  background-size: cover;
+  height: 20%;
+  color: @white;
+  text-transform: uppercase;
+  text-align: center;
+
+  -webkit-box-shadow: 0px 8px 10px 0px rgba(0,0,0,0.35);
+  -moz-box-shadow: 0px 8px 10px 0px rgba(0,0,0,0.35);
+  box-shadow: 0px 8px 10px 0px rgba(0,0,0,0.35);
+}
+
+.nabar-brand{
+  padding-top: 30px;
+}
+
+.mainmenu{
+  margin-top: 20%;
+}
+
+h1{
+  color: black;
+}
+
+.round-box{
+  background-color: @cosy-grey-dker;
+  opacity: 0.9;
+  width: 50%;
+  height: 40px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  margin: 0 auto;
+}
+
+.round-box p{
+  margin: 0 auto;
+}

@@ -1,19 +1,37 @@
 <div ng-controller="MenuItemsCtrl" class="">
 
-    <form>
-        <label for="">Name</label>
-        <input ng-model="newApp.name"/>
-        <label for="">Description</label>
-        <input ng-model="newApp.description"/>
-        <button ng-click="applications.save(newApp); newApp='';" >Add</button>
-    </form>
+    <header class="navbar navbar-fixed-top" role="banner">
+        <div class="container">
+            <h3 class="nabar-brand">
+                Hi and welcome aboard
+            </h3>
+        </div>
+    </header>
 
-    <ul>
-        <li ng-repeat="app in applications">
-            <a href="/{{app._id}}"><h3>{{app.name}}</h3></a>
-            <p>{{app.description}}</p>
-            <button ng-click="remove(app)">Delete</button>
-        </li>
-    </ul>
-    <p>Number of applicaitons {{ applications.length}} </p>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="mainmenu text-center">
+
+                    <form ng-show="$root.currentUser" class="hide-xs">
+                        <label for="">Name</label>
+                        <input ng-model="newApp.name"/>
+                        <label for="">Description</label>
+                        <input ng-model="newApp.description"/>
+                        <button ng-click="newApp.owner=$root.currentUser._id; applications.save(newApp); newApp='';" >Add</button>
+                    </form>
+
+                    <ul>
+                        <li ng-repeat="app in applications">
+                            <div class="round-box">
+                                <h3><a href="/{{app._id}}">{{app.name}}</a></h3>
+                            </div>
+                            <button ng-show="$root.currentUser" ng-click="remove(app)">Delete</button>
+                        </li>
+                    </ul>
+                    <p>Number of applicaitons {{ applications.length}} </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

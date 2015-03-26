@@ -14,6 +14,5 @@
 
             $scope.reset = function () {
                 $scope.app.reset();
-
             }
-        }])
+        }]);
