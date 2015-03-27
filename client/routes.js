@@ -7,7 +7,7 @@ angular.module("trickle-webapp").config(['$urlRouterProvider', '$stateProvider',
         $stateProvider
             .state('applications',{
                 url:'/overview',
-                templateUrl:'client/flytoget/views/application-list.ng.html',
+                templateUrl:'client/flytoget/views/main-menu.ng.html',
                 controller: 'MenuItemsCtrl'
             })
             .state('application', {
