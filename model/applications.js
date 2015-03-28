@@ -1,4 +1,5 @@
 Applicatons = new Mongo.Collection("applications");
+Flight = new Mongo.Collection("flight");
 
 
 Applicatons.allow({

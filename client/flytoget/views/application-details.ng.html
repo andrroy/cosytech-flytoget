@@ -1,9 +1,11 @@
-<h1>This is application {{ app.name }}</h1>
 
+<h1>This is application {{ applications.name }}</h1>
 
-<input ng-model="app.name"/>
-<input ng-model="app.description"/>
+<div ng-show="$root.currentUser">
+    <input ng-model="app.name"/>
+    <input ng-model="app.description"/>
 
-<button ng-click="save()">Save</button>
-<button ng-click="reset()">Reset</button>
-<button><a href="/overview"></a>Cancel</button>
+    <button ng-click="save()">Save</button>
+    <button ng-click="reset()">Reset</button>
+    <button><a href="/overview"></a>Cancel</button>
+</div>

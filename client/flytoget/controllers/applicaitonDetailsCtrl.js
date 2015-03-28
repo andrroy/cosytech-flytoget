@@ -1,18 +1,16 @@
-   angular.module('trickle-webapp').controller('ApplicationDetailsCtrl', ['$scope', '$stateParams', '$meteor',
-        function ($scope, $stateParams, $meteor) {
+angular.module('trickle-webapp').controller("applicationDetailsCtrl",['$scope', '$meteor', '$stateParams',
+    function($scope, $meteor, $stateParams){
 
-            //$scope.applicationId = $stateParams.applicationId;
-            $scope.app = $meteor.object(Applicatons, $stateParams.applicationId, false);
+        console.log('ApplicaitonDetals CONTROLLER');
+        console.log($stateParams);
 
-            $scope.save = function () {
-                $scope.app.save().then(function (numberOfDocs) {
-                    console.log("Success", numberOfDocs);
-                }, function (error) {
-                    console.log("Error", error);
-                });
-            };
 
-            $scope.reset = function () {
-                $scope.app.reset();
-            }
-        }]);
+        $scope.applications = $meteor.object(Applicatons, $stateParams.appId);
+
+        $scope.save = function () {
+        };
+
+        $scope.reset = function () {
+
+        };
+    }]);
