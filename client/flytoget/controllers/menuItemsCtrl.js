@@ -8,4 +8,8 @@ angular.module('trickle-webapp').controller("menuItemsCtrl",['$scope', '$meteor'
         $scope.remove = function(application){
             $scope.applications.remove(application);
         };
+
+        $scope.getDateTime = new Date;
+        console.log($scope.getDateTime);
+
     }]);

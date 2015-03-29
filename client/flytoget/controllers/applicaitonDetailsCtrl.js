@@ -1,9 +1,7 @@
 angular.module('trickle-webapp').controller("applicationDetailsCtrl",['$scope', '$meteor', '$stateParams',
     function($scope, $meteor, $stateParams){
 
-        console.log('ApplicaitonDetals CONTROLLER');
-        console.log($stateParams);
-
+        $scope.airlines = $meteor.collection(Airlines);
 
         $scope.applications = $meteor.object(Applicatons, $stateParams.appId);
 
@@ -13,4 +11,5 @@ angular.module('trickle-webapp').controller("applicationDetailsCtrl",['$scope', 
         $scope.reset = function () {
 
         };
+
     }]);

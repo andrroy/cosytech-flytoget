@@ -5,29 +5,13 @@ layout and use ng-view, and if you still have a repetitive code;
 use ng-include.
 
 -->
-<!--
-
-<header class="" role="">
-    <div class="container">
-        <h1><a ui-sref="appOverview"><i class="fa fa-arrow-left pull-left"></i></a></h1>
-        <h1><a ui-sref="login" class="pull-right">Login</a></h1>
-        <h3 class="">
-            Hi and welcome aboard
-        </h3>
-        <div class="weather">
-            <p><i class="fa fa-cloud"></i>Weather information here...</p>
-        </div>
-    </div>
-</header>
-
--->
 
 <header class="container-fluid header-lg">
     <div class="header-wrapper">
         <div class="greeting">Hi and welcome aboard</div>
         <div class="weather">
             <div class="fa fa-cloud" id="weather-icon"></div>
-            <div id="weather-text">sunday, march 23</div>
+            <div id="weather-text">{{ getDateTime | date: "EEEE, MMMM d"}}</div>
             <div id="weather-deg">13&deg;</div>
         </div>
     </div>
