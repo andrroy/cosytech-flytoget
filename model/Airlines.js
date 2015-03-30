@@ -1,0 +1,1 @@
+Airlines = new Mongo.Collection("airlines");

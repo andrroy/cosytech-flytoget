@@ -18,8 +18,6 @@ angular.module("trickle-webapp").config(['$urlRouterProvider', '$stateProvider',
                 url: '/:appId',
                 templateUrl: 'client/flytoget/views/application-details.ng.html',
                 controller: 'applicationDetailsCtrl'
-            })
-        ;
-
+            });
         $urlRouterProvider.otherwise("/overview");
     }]);
