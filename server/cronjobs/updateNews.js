@@ -4,7 +4,13 @@ var breaking_url = "http://api.breakingnews.com/api/v1/item/?format=rss";
 // Is triggered every 5 minutes
 Meteor.setInterval(function() {
 
-    // TODO: if NewsEntries.find().count() >= 30, delete some stuff
+    var articlesInDb = NewsEntries.find().count();
+    // Delete everything older than 2 days, if more than 40 entries in db
+    if(articlesInDb >= 40){
+        var dateFilter = new Date();
+        dateFilter.setDate(dateFilter.getDate() - 2);
+        NewsEntries.remove({date: {$lt: dateFilter}}).count()
+    }
 
     // GET breaking news RSS feed
     var result = Meteor.http.get(breaking_url);
