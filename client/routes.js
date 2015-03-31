@@ -14,6 +14,11 @@ angular.module("trickle-webapp").config(['$urlRouterProvider', '$stateProvider',
                 url: '/:applicationId',
                 templateUrl: 'client/flytoget/views/application-details.ng.html',
                 controller: 'ApplicationDetailsCtrl'
+            })
+            .state('news', {
+                url: '/news',
+                templateUrl: 'client/flytoget/views/news-feed.ng.html',
+                controller: 'NewsFeedCtrl'
             });
 
         $urlRouterProvider.otherwise('/overview');
