@@ -23,7 +23,7 @@ Meteor.setInterval(function() {
 
         // If id not in db
         if(NewsEntries.find({id: id}).count() === 0)
-            NewsEntries.insert({title: title, link: link, summary: summary, id: id});
+            NewsEntries.insert({title: title, link: link, summary: summary, id: id, date: new Date()});
 
     });
 }, 300000);
