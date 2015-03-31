@@ -13,3 +13,8 @@ less
 accounts-password
 accounts-ui
 fortawesome:fontawesome
+http
+meteorhacks:npm
+
+
+npm-container

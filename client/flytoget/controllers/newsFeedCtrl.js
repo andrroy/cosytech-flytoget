@@ -1,5 +1,4 @@
-angular.module('trickle-webapp').controller("NewsFeedCtrø",['$scope', '$meteor',
+angular.module('trickle-webapp').controller("NewsFeedCtrl",['$scope', '$meteor',
     function($scope, $meteor){
-        $scope.applications = $meteor.collection(Applicatons);
 
     }]);
