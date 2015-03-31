@@ -6,13 +6,14 @@ use ng-include.
 
 -->
 
-<header class="container-fluid header-lg">
+<header ng-controller="headerCtrl" class="container-fluid header-lg">
     <div class="header-wrapper">
         <div class="greeting">Hi and welcome aboard</div>
         <div class="weather">
-            <div class="fa fa-cloud" id="weather-icon"></div>
+            <!--<div class="fa fa-cloud" id="weather-icon"></div>-->
+            <img src="http://openweathermap.org/img/w/{{icon}}" alt="{{icon}}"/>
             <div id="weather-text">{{ getDateTime | date: "EEEE, MMMM d"}}</div>
-            <div id="weather-deg">13&deg;</div>
+            <div id="weather-deg">{{temperature}}&deg;</div>
         </div>
     </div>
 </header>

@@ -28,6 +28,12 @@ Meteor.startup(function(){
             {'name': 'KLM','icon':'someicon.png'},
             {'name': 'SAS','icon':'someicon.png'},
             {'name': 'Lufthansa','icon':'someicon.png'},
+            {'name': 'Norwegian','icon':'someicon.png'},
+            {'name': 'South African','icon':'someicon.png'},
+            {'name': 'Svenskefly','icon':'someicon.png'},
+            {'name': 'American Wings','icon':'someicon.png'},
+            {'name': 'Flight Simulator','icon':'someicon.png'},
+            {'name': 'Haiti Air','icon':'someicon.png'},
             {'name': 'Thai Airways','icon':'someicon.png'}
         ];
 

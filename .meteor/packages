@@ -5,7 +5,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
 urigo:angular
 twbs:bootstrap
 angularui:angular-ui-router
@@ -13,3 +12,5 @@ less
 accounts-password
 accounts-ui
 fortawesome:fontawesome
+urigo:angular-utils-pagination
+tmeasday:publish-counts

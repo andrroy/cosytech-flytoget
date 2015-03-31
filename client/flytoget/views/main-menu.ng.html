@@ -3,28 +3,30 @@
 </div>
 <div class="content">
 
-    <form ng-show="$root.currentUser" class="hide-xs">
+    <form ng-show="$root.currentUser" class="form-addApp">
+        <h3 class="text-center">Add app:</h3>
         <label for="">Name</label>
         <input ng-model="newApp.name"/>
-        <label for="">Description</label>
-        <input ng-model="newApp.description"/>
-        <button ng-click="newApp.owner=$root.currentUser._id; applications.save(newApp); newApp='';" >Add</button>
+        <button ng-click="newApp.owner=$root.currentUser._id; applications.save(newApp); newApp='';" ><i class="fa fa-plus-circle"></i></button>
     </form>
 
     <ul>
         <li ng-repeat="app in applications">
-            <a ui-sref="appDetails({appId: app._id})">
-                <div class="round-box">
-                    <div class="menu-icon">
-                        <i class="pull-left fa fa-plane"></i>
-                    </div>
+            <!--<a ui-sref="appDetails({appId: app._id})">-->
+            <div class="round-box">
+                <div class="menu-icon">
+                    <i class="pull-left fa fa-plane"></i>
+                </div>
+                <a ui-sref="appDetails({appId: app._id})">
                     <div class="menu-text">
                         {{app.name}}
                     </div>
-                    <div class="menu-empty"></div>
+                </a>
+                <div class="menu-empty">
+                    <button ng-show="$root.currentUser" ng-click="remove(app)"><i class="fa fa-minus-circle"></i></button>
                 </div>
-            </a>
-            <button ng-show="$root.currentUser" ng-click="remove(app)">Delete</button>
+            </div>
+            <!--</a>-->
         </li>
     </ul>
     <p class="text-center">Number of applicaitons {{ applications.length}} </p>
