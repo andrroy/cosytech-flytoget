@@ -17,24 +17,22 @@ body {
   font-style: normal;
   font-weight: 800;
   color: white;
+  background-color: @cosy-grey-lter;
 
   font-size: 20px;
   -webkit-font-smoothing: antialiased;
   line-height: 1.42857143;
-  background: url("img/bg.jpg") no-repeat left center;
-  background-size: cover;
 }
 
 ul{
   list-style-type: none;
 }
 
-
-.navbar{
+.header{
   background: url("/img/header-lines.svg") no-repeat center center;
   //background-color: transparent;
   background-size: cover;
-  height: 15%;
+  height: 100px;
   max-height: 250px;
 
   text-align: center;
@@ -44,19 +42,58 @@ ul{
   box-shadow: 0px 8px 10px 0px rgba(0,0,0,0.35);
 }
 
-.navbar > .container > .weather {
-  width: 100%;
+.header-lg {
+  .header;
+  height: 150px;
+}
+
+.header-wrapper{
+  width: 80%;
   height: 100%;
+  //background-color: #DBDCDE;
+  margin: 0 auto;
+
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+
+}
+
+.greeting{
+  order: 1;
+  font-size: 1.2em;
+
+  //background-color: #f16949;
+}
+
+.weather {
+  order: 2;
+
+  width: 90%;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
+
   //background-color: #399fbd;
-  font-weight: 300;
 }
 
-.nabar-brand{
-  padding-top: 30px;
+#weather-icon{
+  //background-color: #399fbd;
+  font-size: 2em;
+  order:1;
 }
-
-.mainmenu{
-  margin-top: 100px;
+#weather-text{
+  order:2;
+}
+#weather-deg{
+  font-size: 2em;
+  order:3;
 }
 
 h1{
@@ -64,14 +101,65 @@ h1{
 }
 
 .content{
-  margin-top: 100px;
+  margin-top: 10px;
   //background-color: #f16949;
+}
+
+
+.form-addApp{
+  max-width: 400px;
+  padding: 15px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  position: relative;
+  height: auto;
+
+}
+
+
+.form-addApp button{
+  border: none;
+  background-color: transparent;
+
+  font-size: 30px;
+}
+
+.form-addApp input[type="text"]{
 }
 
 a, a:hover{
   text-decoration: none;
+  color: inherit;
 }
 
+.thumbnail img{
+  width: 80px;
+}
+
+.thumbnail{
+  border-style: none;
+  //background-color: #399fbd;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.menuWrapper{
+  background: url("img/bg.jpg") no-repeat left center;
+  background-size: cover;
+  //background-color: #399fbd;
+  position: absolute;
+  width: 100%;
+  z-index: -100;
+  top: 0;
+  bottom: 0;
+}
+
+input{
+  background-color: transparent;
+  border: none;
+  border-bottom: dotted;
+  border-bottom-color: #399fbd;
+}
 
 .round-box{
   background-color: rgba(00,00,00,0.6);
@@ -114,24 +202,39 @@ a, a:hover{
   order:2;
 }
 
-
-/*
-.round-box > h3 > a{
-  order: 3;
-  color: white;
-  background-color: #399fbd;
-  margin-bottom: 40px;
+.menu-empty button{
+  background-color: transparent;
+  border: none;
 }
 
-
-.round-box > .icon{
-  order: 1;
-  background-color: @cosy-orange;
-  margin-top: -10px;
-  height: 100%;
-  width: 50px;
-
-  border-radius: 100%;
-  font-size: 2.4em;
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
-*/
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+.container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}

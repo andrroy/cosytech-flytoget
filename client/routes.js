@@ -3,15 +3,19 @@ angular.module("trickle-webapp").config(['$urlRouterProvider', '$stateProvider',
 
         $locationProvider.html5Mode(true);
 
-        // Define routes:
         $stateProvider
-            .state('applications',{
-                url:'/overview',
-                templateUrl:'client/flytoget/views/main-menu.ng.html',
-                controller: 'MenuItemsCtrl'
+            .state('login', {
+                url: '/login',
+                templateUrl: 'client/flytoget/views/login.ng.html',
+                controller: 'loginCtrl'
             })
-            .state('application', {
-                url: '/:applicationId',
+            .state('appOverview', {
+                url: '/overview',
+                templateUrl: 'client/flytoget/views/main-menu.ng.html',
+                controller: 'menuItemsCtrl'
+            })
+            .state('appDetails', {
+                url: '/:appId',
                 templateUrl: 'client/flytoget/views/application-details.ng.html',
                 controller: 'ApplicationDetailsCtrl'
             })
@@ -20,6 +24,5 @@ angular.module("trickle-webapp").config(['$urlRouterProvider', '$stateProvider',
                 templateUrl: 'client/flytoget/views/news-feed.ng.html',
                 controller: 'NewsFeedCtrl'
             });
-
-        $urlRouterProvider.otherwise('/overview');
+        $urlRouterProvider.otherwise("/overview");
     }]);

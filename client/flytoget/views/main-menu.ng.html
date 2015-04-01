@@ -1,50 +1,33 @@
-<div ng-controller="MenuItemsCtrl" class="">
-    <div class="menuWrapper">
+<ng-include src="'client/flytoget/views/header.ng.html'"> </ng-include>
+<div class="menuWrapper">
+</div>
+<div class="content">
 
-        <header class="navbar navbar-fixed-top" role="banner">
-            <div class="container">
-                <h3 class="nabar-brand">
-                    Hi and welcome aboard
-                </h3>
-                <div class="weather">
-                    <p><i class="fa fa-cloud"></i>Weather information here...</p>
+    <form ng-show="$root.currentUser" class="form-addApp">
+        <h3 class="text-center">Add app:</h3>
+        <label for="">Name</label>
+        <input ng-model="newApp.name"/>
+        <button ng-click="newApp.owner=$root.currentUser._id; applications.save(newApp); newApp='';" ><i class="fa fa-plus-circle"></i></button>
+    </form>
+
+    <ul>
+        <li ng-repeat="app in applications">
+            <!--<a ui-sref="appDetails({appId: app._id})">-->
+            <div class="round-box">
+                <div class="menu-icon">
+                    <i class="pull-left fa fa-plane"></i>
                 </div>
-            </div>
-        </header>
-
-        <div class="content">
-            <div class="container">
-                <div class="row">
-                    <div class="mainmenu text-center">
-
-                        <form ng-show="$root.currentUser" class="hide-xs">
-                            <label for="">Name</label>
-                            <input ng-model="newApp.name"/>
-                            <label for="">Description</label>
-                            <input ng-model="newApp.description"/>
-                            <button ng-click="newApp.owner=$root.currentUser._id; applications.save(newApp); newApp='';" >Add</button>
-                        </form>
-
-                        <ul>
-                            <li ng-repeat="app in applications">
-                                <a href="/{{app._id}}">
-                                    <div class="round-box">
-                                        <div class="menu-icon">
-                                            <i class="pull-left fa fa-plane"></i>
-                                        </div>
-                                        <div class="menu-text">
-                                            {{app.name}}
-                                        </div>
-                                        <div class="menu-empty"></div>
-                                    </div>
-                                </a>
-                                <button ng-show="$root.currentUser" ng-click="remove(app)">Delete</button>
-                            </li>
-                        </ul>
-                        <p>Number of applicaitons {{ applications.length}} </p>
+                <a ui-sref="appDetails({appId: app._id})">
+                    <div class="menu-text">
+                        {{app.name}}
                     </div>
+                </a>
+                <div class="menu-empty">
+                    <button ng-show="$root.currentUser" ng-click="remove(app)"><i class="fa fa-minus-circle"></i></button>
                 </div>
             </div>
-        </div>
-    </div>
+            <!--</a>-->
+        </li>
+    </ul>
+    <p class="text-center">Number of applicaitons {{ applications.length}} </p>
 </div>

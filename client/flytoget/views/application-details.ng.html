@@ -1,9 +1,39 @@
-<h1>This is application {{ app.name }}</h1>
+<ng-include src="'client/flytoget/views/header.ng.html'"> </ng-include>
+<div class="content">
+    <h1>{{ applications.name }}</h1>
 
 
-<input ng-model="app.name"/>
-<input ng-model="app.description"/>
+    <div class="container">
+        <div class="row">
 
-<button ng-click="save()">Save</button>
-<button ng-click="reset()">Reset</button>
-<button><a href="/overview"></a>Cancel</button>
+            <h1>Airlines</h1>
+            <div>
+                <select ng-model="orderProperty">
+                    <option value="1">Ascending</option>
+                    <option value="-1">Decending</option>
+                </select>
+            </div>
+
+            <div dir-paginate="airline in airlines | itemsPerPage: perPage" total-items="airlineCounts.count">
+                <div class="col-xs-4 text-center">
+                    <div class="thumbnail">
+                        <img src="img/airline.png" class="img-responsive" alt="...">
+                        <div class="caption">
+                            <p>{{airline.name}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+        </div>
+    </div>
+
+    <div ng-show="$root.currentUser">
+        <input ng-model="app.name"/>
+        <input ng-model="app.description"/>
+
+        <button ng-click="save()">Save</button>
+        <button ng-click="reset()">Reset</button>
+        <button><a href="/overview"></a>Cancel</button>
+    </div>
+</div>

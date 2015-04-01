@@ -1,1 +1,1 @@
-angular.module('trickle-webapp',['angular-meteor', 'ui.router']);
+angular.module('trickle-webapp',['angular-meteor', 'ui.router', 'angularUtils.directives.dirPagination']);
