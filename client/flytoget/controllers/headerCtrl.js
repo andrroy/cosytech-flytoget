@@ -23,3 +23,5 @@ angular.module('trickle-webapp').controller("headerCtrl", ['$scope' , '$http',
                 // or server returns response with an error status.
             });
     }]);
+
+
