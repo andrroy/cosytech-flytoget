@@ -9,7 +9,7 @@ Meteor.setInterval(function() {
     if(articlesInDb >= 40){
         var dateFilter = new Date();
         dateFilter.setDate(dateFilter.getDate() - 2);
-        NewsEntries.remove({date: {$lt: dateFilter}}).count()
+        NewsEntries.remove({date: {$lt: dateFilter}})
     }
 
     // GET breaking news RSS feed
