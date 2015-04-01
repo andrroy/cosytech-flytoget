@@ -34,7 +34,8 @@ angular.module('trickle-webapp').controller("applicationDetailsCtrl",['$scope', 
                 limit: parseInt($scope.getReactively('perPage')), // So that meteor can get updates from angular
                 skip: (parseInt($scope.getReactively('page'))- 1) * parseInt($scope.getReactively('perPage')),
                 sort: $scope.getReactively('sort') // Sorting on the server
-            }).then(function () {
+            }, $scope.getReactively('search'))
+                .then(function () {
                 console.log("crashing?");
                 $scope.airlineCounts = $meteor.object(Counts, "numberOfAirlines", false);
                 console.log($scope.airlineCounts.count);

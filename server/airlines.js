@@ -1,20 +1,13 @@
 //The name [airlines] is what the client have to use in order to subscribe
-/*Meteor.publish("airlines", function (options) {
 
-    // The publish-counts package creates a meteor collection called counts
-    //console.log("Publishing!");
+Meteor.publish("airlines", function (options, searchString) {
 
-    Counts.publish(this, "numberOfAirlines", Airlines.find({}), {noReady: true});
-
-    return Airlines.find({}, options);
-});*/
-
-//Example of selective publish with mongo query:
-Meteor.publish("airlines", function (options) {
-
-    console.log("Publishing!");
+    if(searchString == null){
+        searchString = '';
+    }
 
     Counts.publish(this, "numberOfAirlines", Airlines.find({
+        'name' : { '$regex' : '.*' + searchString || '' + '.*', '$options' : 'i' }
         /*$or: [
             // If our party is public and if it actually exist.
             {$and:[
@@ -29,10 +22,8 @@ Meteor.publish("airlines", function (options) {
         ]*/
     }), {noReady: true});
 
-    console.log("options:");
-    console.log(options);
-
     return Airlines.find({
+        'name' : { '$regex' : '.*' + searchString || '' + '.*', '$options' : 'i' }
         /*$or: [
             // If our party is public and if it actually exist.
             {$and:[

@@ -10,7 +10,20 @@
         <button ng-click="newApp.owner=$root.currentUser._id; applications.save(newApp); newApp='';" ><i class="fa fa-plus-circle"></i></button>
     </form>
 
+    <div ng-hide="$root.currentUser" class="emptyHack" style="height: 80px"></div>
+
     <ul>
+        <li>
+            <div class="round-box">
+                <div class="menu-icon">
+                    <i class="fa fa-newspaper-o"></i>
+                </div>
+                <a ui-sref="news">
+                    <div class="menu-text"></div>News
+                </a>
+                <div class="menu-empty"></div>
+            </div>
+        </li>
         <li ng-repeat="app in applications">
             <!--<a ui-sref="appDetails({appId: app._id})">-->
             <div class="round-box">

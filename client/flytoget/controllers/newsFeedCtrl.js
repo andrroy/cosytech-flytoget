@@ -1,4 +1,9 @@
-angular.module('trickle-webapp').controller("NewsFeedCtrl",['$scope', '$meteor',
+angular.module('trickle-webapp').controller("newsFeedCtrl",['$scope', '$meteor',
     function($scope, $meteor){
-        $scope.newsEntries = $meteor.collection(NewsEntries);
+        
+        console.log("newsFeed loaded...");
+        $scope.newsEntries = $meteor.collection(NewsEntries).subscribe('newsEntries');
+
+        console.log($scope.newsEntries);
+
     }]);

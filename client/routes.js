@@ -7,22 +7,22 @@ angular.module("trickle-webapp").config(['$urlRouterProvider', '$stateProvider',
             .state('login', {
                 url: '/login',
                 templateUrl: 'client/flytoget/views/login.ng.html',
-                controller: 'loginCtrl'
+                controller: 'headerCtrl'
             })
             .state('appOverview', {
-                url: '/overview',
+                url: '/',
                 templateUrl: 'client/flytoget/views/main-menu.ng.html',
                 controller: 'menuItemsCtrl'
             })
             .state('appDetails', {
                 url: '/:appId',
                 templateUrl: 'client/flytoget/views/application-details.ng.html',
-                controller: 'ApplicationDetailsCtrl'
+                controller: 'applicationDetailsCtrl'
             })
             .state('news', {
                 url: '/news',
                 templateUrl: 'client/flytoget/views/news-feed.ng.html',
-                controller: 'NewsFeedCtrl'
+                controller: 'newsFeedCtrl'
             });
-        $urlRouterProvider.otherwise("/overview");
+        $urlRouterProvider.otherwise("/");
     }]);
