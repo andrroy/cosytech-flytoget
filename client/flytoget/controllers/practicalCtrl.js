@@ -12,18 +12,20 @@ angular.module('trickle-webapp').controller("practicalCtrl",['$scope', '$meteor'
         // Refresh webcam feed every minute
         setInterval(refreshWebcamFeed, 60000);
 
+
         var getQueueTime = function() {
+            $meteor.call('getQueueTime')
+                .then(function(queueTime) {
+                    $scope.queueTime = queueTime;
+                }, function(err) {
+                    console.log("QueueTime error");
+                });
+        };
 
+        $scope.queueTime = getQueueTime();
 
-        }
+        // Refresh queueTime every 30 seconds
+        setInterval(getQueueTime, 30000);
 
-        $http.get("https://avinor.no/Api/QueueTime/OSL?language=no&_=1425427077776")
-            .success(function(res) {
-                console.log(res);
-                $scope.queueTime = JSON.parse(res).QueueTime.replace ( /[^\d.]/g, '' );
-            })
-            .error(function(err) {
-                console.log("QueueTime errro");
-            });
 
     }]);
