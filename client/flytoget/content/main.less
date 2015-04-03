@@ -278,10 +278,12 @@ input:focus{
   margin-left: -15px;
 }
 
+/*
+* Andreas tar forebehold om eventuelle bugs og "bad practises" som
+* måtte eksistere i koden under
+*/
 
-// Andreas har ikke peiling på hva han holder på med
-// Tar forebehold om at ting ikke blir gjort slik det bør gjøres
-// Holdes på ingen måte ansvarlig for eventuelle bugs som måtte oppstå
+/* Practical view */
 .camfeed {
   max-width: 100%;
   margin-top: -11px;
@@ -315,3 +317,28 @@ input:focus{
 .waiting-info {
   padding-left: 20px;
 }
+
+.gallery {
+  padding-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 640px;
+
+  h3 {
+    color: @cosy-orange;
+    font-size: 0.8em;
+    text-align: center;
+  }
+
+  p {
+    font-size: 0.6em;
+  }
+}
+
+@media (max-width: 640px) {
+
+  .gallery {
+    width: 80%;
+  }
+}
+/* End Practical view */
