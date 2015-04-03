@@ -3,17 +3,17 @@ Meteor.startup(function(){
 
         var applications = [
             {'name':'Flight',
-                'description':'Gives you flight information' },
+                'slug':'flight' },
             {'name':'Entertainment',
-                'description':'Gives you entertainment' },
+                'slug':'entertainment' },
             {'name':'Breaking',
-                'description':'Gives you global news' },
+                'slug':'news' },
             {'name':'Useful Info',
-                'description':'Gives you useful information' }
+                'slug':'info' }
         ];
 
         for(var i = 0; i<applications.length; i++){
-            Applicatons.insert({name: applications[i].name, description: applications[i].description});
+            Applicatons.insert({name: applications[i].name, slug: applications[i].slug});
         }
     }
 

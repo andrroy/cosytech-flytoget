@@ -2,13 +2,13 @@ angular.module('trickle-webapp')
     .controller("headerCtrl", ['$scope' , '$http',
         function($scope, $http) {
             
-            console.log("HeaderCtrl...");
+            //console.log("HeaderCtrl...");
 
             var url = "http://api.openweathermap.org/data/2.5/weather?lat=60.1952777778&lon=11.0994444444";
-            console.log("");
+            //console.log("");
 
             $scope.getDateTime = new Date;
-            console.log($scope.getDateTime);
+            //console.log($scope.getDateTime);
 
             // Simple GET request example :
             $http.get(url).
@@ -17,7 +17,12 @@ angular.module('trickle-webapp')
                     var t = (parseFloat(data.main.temp) - 273.15);
                     $scope.temperature = t.toFixed(1);
 
-                    $scope.icon = data.weather[0].icon + '.png';
+                    console.log("weather:");
+                    console.log(data.weather[0].icon);
+
+                    $scope.icon = "icons/" + data.weather[0].icon + ".svg";
+                    console.log($scope.icon);
+
 
                 }).
                 error(function(data, status, headers, config) {
@@ -28,7 +33,7 @@ angular.module('trickle-webapp')
         }])
 
     .directive('zippy', function () {
-        console.log("directive");
+        //console.log("directive");
         return {
             restrict: 'E', // Element Attribute Class Comment
             link: function (scope, element, attribute) {

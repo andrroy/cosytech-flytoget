@@ -79,18 +79,17 @@ ul{
   //background-color: #DBDCDE;
   margin: 0 auto;
 
-
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
 
 }
 
 .greeting{
   order: 1;
-  font-size: 1.2em;
+  font-size: 4vmin;
 
   //background-color: #f16949;
 }
@@ -117,8 +116,14 @@ ul{
 #weather-text{
   order:2;
 }
+
+.icon-small{
+  width: 6vmax;
+}
+
+
 #weather-deg{
-  font-size: 2em;
+  font-size: 5vmax;
   order:3;
 }
 
@@ -163,6 +168,7 @@ a, a:hover{
 }
 
 .thumbnail{
+  text-align: center;
   border-style: none;
   //background-color: #399fbd;
   font-size: 13px;
@@ -171,7 +177,7 @@ a, a:hover{
 
 .menuWrapper{
   background: url("img/bg.jpg") no-repeat left center;
-  background-size: cover;
+  background-size: auto;
   //background-color: #399fbd;
   position: absolute;
   width: 100%;
@@ -193,7 +199,7 @@ input:focus{
 }
 
 .round-box{
-  background-color: rgba(00,00,00,0.6);
+  background-color: rgba(40, 40, 40, 0.8);
 
   display: flex;
   flex-direction: row;
@@ -223,6 +229,8 @@ input:focus{
   order: 0;
   font-size: 40px;
 }
+
+
 
 .menu-text{
   order: 1;

@@ -1,5 +1,7 @@
-angular.module('trickle-webapp').controller("applicationDetailsCtrl",['$scope', '$meteor', '$stateParams',
+angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$stateParams',
     function($scope, $meteor, $stateParams){
+        
+        console.log("GRIDCTRL LOADED");
 
 
         // The current page of the pagination
@@ -46,7 +48,12 @@ angular.module('trickle-webapp').controller("applicationDetailsCtrl",['$scope', 
             $scope.page = newPage;
         };
 
-        $scope.applications = $meteor.object(Applicatons, $stateParams.appId);
+        //$scope.applications = $meteor.object(Applicatons, $stateParams.slug);
+        //$scope.applications2 = $meteor.collection(Applicatons);
+        $scope.applications2 = $meteor.collection(Applicatons).subscribe("applications");
+
+        console.log("applications:");
+        console.log($scope.applications2);
 
         $scope.save = function () {
         };
