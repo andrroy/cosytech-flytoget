@@ -1,7 +1,23 @@
 <ng-include src="'client/flytoget/views/header.ng.html'"> </ng-include>
 
 <div class="content">
-    <img src="{{webcamFeed}}" alt="Webcam feed Gardermoen" class="camfeed">
+
+
+    <!-- wrapper div -->
+    <div class='webcam-wrapper'>
+        <!-- image -->
+        <img src="{{webcamFeed}}" alt="Webcam feed Gardermoen" class="camfeed">
+        <!-- description div -->
+        <div class='webcam-description'>
+            <!-- description content -->
+            <span class='webcam-description-content'>LIVE<span class="circle"></span></span>
+            <!-- end description content -->
+        </div>
+        <!-- end description div -->
+    </div>
+    <!-- end wrapper div -->
+
+
     <div class="queue-info">
         <i class="fa fa-compass fa-2x"></i>
         <span class="waiting-info">Waiting:</span><br>

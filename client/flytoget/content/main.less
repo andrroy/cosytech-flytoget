@@ -284,20 +284,56 @@ input:focus{
 */
 
 /* Practical view */
+
+// Webcam
+.webcam-wrapper{
+  float:left;
+  position:relative;
+}
+.webcam-description{
+  position:absolute;
+  bottom:0;
+//  left:0;
+  width:100%;
+  color: white;
+//  background-color:black;
+//  opacity:0.5; /* transparency */
+//  filter:alpha(opacity=50); /* IE transparency */
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, .5);
+  font-size: 0.6em;
+}
+.webcam-description-content{
+  padding:10px;
+  margin:0;
+}
+.circle {
+  width:10px;
+  height:10px;
+  float: right;
+//  padding-right: 20px;
+//  margin:0 auto;
+  margin-right: 20px;
+  border-radius:100%;
+  background-color:#5cd05b;
+  display: block;
+}
 .camfeed {
   max-width: 100%;
   margin-top: -11px;
 }
-@media (min-width: 640px) {
+//@media (min-width: 640px) {
+//
+//  .camfeed {
+//    display: block;
+//    margin-left: auto;
+//    margin-right: auto;
+//    margin-top: 10px;
+//
+//  }
+//}
 
-  .camfeed {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-
-  }
-}
+// END Webcam
 
 .queue-info {
   background-color: #00747e;
