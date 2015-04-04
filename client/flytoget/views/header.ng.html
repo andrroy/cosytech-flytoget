@@ -8,12 +8,13 @@ use ng-include.
 
 <header ng-controller="headerCtrl" class="container-fluid header-lg">
     <div class="header-wrapper">
-        <div class="greeting">Hi and welcome aboard</div>
+        <div class="greeting">Hi, and welcome aboard</div>
         <div class="weather">
             <!--<div class="fa fa-cloud" id="weather-icon"></div>-->
             <img src="http://openweathermap.org/img/w/{{icon}}" alt="{{icon}}"/>
-            <div id="weather-text">{{ getDateTime | date: "EEEE, MMMM d"}}</div>
-            <div id="weather-deg">{{temperature}}&deg;</div>
+            <div id="weather-text">{{ getDateTime | date: "EEEE"}}, <span id="weather-text-dark">{{ getDateTime | date: "MMMM d"}}</span></div>
+
+            <div id="weather-deg">{{temperature}}&deg;<span id="celsius">C</span></div>
         </div>
     </div>
 </header>
