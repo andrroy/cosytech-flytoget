@@ -16,6 +16,7 @@ body {
   text-transform: uppercase;
   font-style: normal;
   font-weight: 400;
+  color: white;
   background-color: @cosy-grey-lter;
 
   font-size: 20px;
@@ -417,3 +418,31 @@ input:focus{
   }
 }
 /* End Practical view */
+}
+
+/* Breaking view */
+article {
+  padding-left: 10px;
+
+  hr {
+    margin-right: 10px;
+  }
+
+  small {
+    font-size: 0.6em;
+    float: right;
+    margin-right: 10px;
+    margin-top: -8px;
+  }
+
+}
+
+@media (min-width: 768px) {
+  article {
+    max-width: 770px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+}
