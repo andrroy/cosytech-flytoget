@@ -14,15 +14,15 @@ angular.module("trickle-webapp").config(['$urlRouterProvider', '$stateProvider',
                 templateUrl: 'client/flytoget/views/main-menu.ng.html',
                 controller: 'menuItemsCtrl'
             })
-            .state('appDetails', {
-                url: '/:appId',
-                templateUrl: 'client/flytoget/views/application-details.ng.html',
-                controller: 'applicationDetailsCtrl'
-            })
+            //.state('appDetails', {
+            //    url: '/:appId',
+            //    templateUrl: 'client/flytoget/views/application-details.ng.html',
+            //    controller: 'applicationDetailsCtrl'
+            //})
             .state('news', {
                 url: '/news',
                 templateUrl: 'client/flytoget/views/news-feed.ng.html',
-                controller: 'newsFeedCtrl'
+                controller: 'newsCtrl'
             })
             .state('practical', {
                 url: '/practical',
