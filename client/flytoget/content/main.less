@@ -16,7 +16,6 @@ body {
   text-transform: uppercase;
   font-style: normal;
   font-weight: 400;
-  color: white;
   background-color: @cosy-grey-lter;
 
   font-size: 20px;
@@ -49,6 +48,7 @@ ul{
   /*background: url("/img/header-lines.svg") no-repeat center center; */
   background: url("/img/bg_top.png") no-repeat center center;
   //background-color: transparent;
+  color: white;
   background-size: cover;
   height: 100px;
   max-height: 250px;
@@ -309,3 +309,111 @@ input:focus{
   margin-right: -15px;
   margin-left: -15px;
 }
+
+/*
+* Andreas tar forebehold om eventuelle bugs og "bad practises" som
+* måtte eksistere i koden under
+*/
+
+/* Practical view */
+
+.image-wrapper {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.image-wrapper p {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, .5);
+  font-size: 0.6em;
+  margin-bottom: 0;
+}
+
+@media (min-width: 640px) {
+  .image-wrapper {
+    max-width: 640px;
+  }
+}
+
+.webcam-description-content{
+  line-height: 10px;
+  padding: 5px;
+  float: right;
+}
+
+.circle {
+  width:10px;
+  height:10px;
+  float: right;
+  margin-right: 20px;
+  margin-left:5px;
+  border-radius:100%;
+  background-color:#5cd05b;
+  display: block;
+}
+
+@media (min-width: 640px) {
+
+  .webcam-wrapper{
+    //    left: 20%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 640px;
+    display:block;
+
+  }
+}
+
+.queue-info {
+  background-color: #00747e;
+  min-height: 60px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+
+.fa-compass {
+  float: left;
+  margin-top: 8px;
+  margin-left: 10px;
+}
+
+.waiting-info {
+  padding-left: 20px;
+}
+
+.gallery {
+  padding-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 640px;
+
+  h3 {
+    color: @cosy-orange;
+    font-size: 0.8em;
+    text-align: center;
+  }
+
+  p {
+    font-size: 0.6em;
+  }
+}
+
+@media (max-width: 640px) {
+
+  .gallery {
+    width: 80%;
+  }
+}
+/* End Practical view */

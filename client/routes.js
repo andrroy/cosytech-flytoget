@@ -15,29 +15,19 @@ angular.module("trickle-webapp").config(['$urlRouterProvider', '$stateProvider',
                 controller: 'menuItemsCtrl'
             })
             .state('appDetails', {
-                url: '/:slug',
-                templateUrl: function ($stateParams) {
-                    if($stateParams.slug == 'news'){
-                        return 'client/flytoget/views/news-feed.ng.html'
-                    }
-                    if($stateParams.slug == 'entertainment'){
-                        return 'client/flytoget/views/entertainment.ng.html'
-                    }
-                    return 'client/flytoget/views/grid.ng.html'
-                },
-                controllerProvider: function ($stateParams) {
-                    console.log($stateParams.slug);
-                    if($stateParams.slug == 'news'){
-                        console.log("navigating to news");
-                        return $stateParams.slug + "Ctrl";
-                    }
-                    if($stateParams.slug == 'entertainment') {
-                        return $stateParams.slug + "Ctrl";
-                    }
-                    var ctrlName = "gridCtrl"; // TODO: Fix this.
-                    console.log("navigating to " + ctrlName);
-                    return ctrlName;
-                }
+                url: '/:appId',
+                templateUrl: 'client/flytoget/views/application-details.ng.html',
+                controller: 'applicationDetailsCtrl'
+            })
+            .state('news', {
+                url: '/news',
+                templateUrl: 'client/flytoget/views/news-feed.ng.html',
+                controller: 'newsFeedCtrl'
+            })
+            .state('practical', {
+                url: '/practical',
+                templateUrl: 'client/flytoget/views/practical.ng.html',
+                controller: 'practicalCtrl'
             });
         $urlRouterProvider.otherwise("/");
     }]);

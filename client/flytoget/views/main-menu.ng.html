@@ -13,7 +13,7 @@
     <div ng-hide="$root.currentUser" class="emptyHack" style="height: 80px"></div>
 
     <ul>
-<!--        <li>
+        <li>
             <div class="round-box">
                 <div class="menu-icon">
                     <i class="fa fa-newspaper-o"></i>
@@ -24,26 +24,24 @@
                 <div class="menu-empty"></div>
             </div>
         </li>
--->
+        <li>
+            <div class="round-box">
+                <div class="menu-icon">
+                    <i class="fa fa-newspaper-o"></i>
+                </div>
+                <a ui-sref="practical">
+                    <div class="menu-text"></div>Practical
+                </a>
+                <div class="menu-empty"></div>
+            </div>
+        </li>
         <li ng-repeat="app in applications">
             <!--<a ui-sref="appDetails({appId: app._id})">-->
             <div class="round-box">
                 <div class="menu-icon">
-                    <div ng-if="app.name == 'Flight' ">
-                        <img src="/img/menu_plane.png" class="menu_image"/>
-                    </div>
-                    <div ng-if="app.name == 'Entertainment' ">
-                        <img src="/img/menu_entertainment.png" class="menu_image"/>
-                    </div>
-                    <div ng-if="app.name == 'Breaking' ">
-                        <img src="/img/menu_breaking.png" class="menu_image"/>
-                    </div>
-                    <div ng-if="app.name == 'Useful Info' ">
-                        <img src="/img/menu_practical.png" class="menu_image"/>
-                    </div>
-                    <!-- <i class="pull-left fa fa-plane"></i> -->
+                    <i class="pull-left fa fa-plane"></i>
                 </div>
-                <a ui-sref="appDetails({slug: app.slug})">
+                <a ui-sref="appDetails({appId: app._id})">
                     <div class="menu-text">
                         {{app.name}}
                     </div>
@@ -52,10 +50,8 @@
                     <button ng-show="$root.currentUser" ng-click="remove(app)"><i class="fa fa-minus-circle"></i></button>
                 </div>
             </div>
+            <!--</a>-->
         </li>
-
-        <div id="trickle-logo">
-            <img src="/img/trickle_logo.png" />
-        </div>
     </ul>
+    <p class="text-center">Number of applicaitons {{ applications.length}} </p>
 </div>
