@@ -20,12 +20,18 @@ angular.module("trickle-webapp").config(['$urlRouterProvider', '$stateProvider',
                     if($stateParams.slug == 'news'){
                         return 'client/flytoget/views/news-feed.ng.html'
                     }
+                    if($stateParams.slug == 'entertainment'){
+                        return 'client/flytoget/views/entertainment.ng.html'
+                    }
                     return 'client/flytoget/views/grid.ng.html'
                 },
                 controllerProvider: function ($stateParams) {
                     console.log($stateParams.slug);
                     if($stateParams.slug == 'news'){
                         console.log("navigating to news");
+                        return $stateParams.slug + "Ctrl";
+                    }
+                    if($stateParams.slug == 'entertainment') {
                         return $stateParams.slug + "Ctrl";
                     }
                     var ctrlName = "gridCtrl"; // TODO: Fix this.
