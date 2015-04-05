@@ -1,15 +1,13 @@
 <ng-include src="'client/flytoget/views/header.ng.html'"> </ng-include>
 
 <div class="content">
-    <div class="container">
-        <div class="row">
-            <article class="article" ng-repeat="entry in newsEntries | orderBy: 'date'">
-                <div class="col-xs-6">
-                    <h3>News:</h3>
-                    <!-- Date -->
-                    <p>{{entry.summary}}</p>
-                </div>
-            </article>
-        </div>
-    </div>
+
+    <article class="article" ng-repeat="entry in newsEntries | orderBy: 'date'">
+        <a href="{{entry.link}}">
+            <p>{{entry.summary}}</p>
+            <small ng-bind="entry.date | date:'H:mm, MM/dd/yyyy'"></small>
+            <hr>
+        </a>
+    </article>
+
 </div>
