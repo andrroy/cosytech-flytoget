@@ -20,7 +20,8 @@ angular.module('trickle-webapp')
                     console.log("weather:");
                     console.log(data.weather[0].icon);
 
-                    $scope.icon = "icons/" + data.weather[0].icon + ".svg";
+                    //$scope.icon = "icons/" + data.weather[0].icon + ".svg";
+                    $scope.icon = data.weather[0].icon + ".png";
                     console.log($scope.icon);
 
 
