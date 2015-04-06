@@ -48,12 +48,17 @@ angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$s
             $scope.page = newPage;
         };
 
+
+        // Current state of Angular-Meteor API does not allow to retreve Mongo object
+        // from other than ID. In our case we try to retreve it by slug.
+        // TODO: Need solution to this.
+
         //$scope.applications = $meteor.object(Applicatons, $stateParams.slug);
         //$scope.applications2 = $meteor.collection(Applicatons);
-        $scope.applications2 = $meteor.collection(Applicatons).subscribe("applications");
+        //$scope.applications2 = $meteor.collection(Applicatons).subscribe("applications");
 
-        console.log("applications:");
-        console.log($scope.applications2);
+        //console.log("applications:");
+        //console.log($scope.applications);
 
         $scope.save = function () {
         };
