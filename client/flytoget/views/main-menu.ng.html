@@ -13,7 +13,7 @@
     <div ng-hide="$root.currentUser" class="emptyHack" style="height: 80px"></div>
 
     <ul>
-        <li>
+        <!--<li>
             <div class="round-box">
                 <div class="menu-icon">
                     <i class="fa fa-newspaper-o"></i>
@@ -23,23 +23,24 @@
                 </a>
                 <div class="menu-empty"></div>
             </div>
-        </li>
-        <li>
-            <div class="round-box">
-                <div class="menu-icon">
-                    <i class="fa fa-newspaper-o"></i>
-                </div>
-                <a ui-sref="practical">
-                    <div class="menu-text"></div>Practical
-                </a>
-                <div class="menu-empty"></div>
-            </div>
-        </li>
+        </li>-->
         <li ng-repeat="app in applications">
             <!--<a ui-sref="appDetails({appId: app._id})">-->
             <div class="round-box">
                 <div class="menu-icon">
-                    <i class="pull-left fa fa-plane"></i>
+                    <div ng-if="app.name == 'Flight' ">
+                        <img src="/img/menu_plane.png" class="menu_image"/>
+                    </div>
+                    <div ng-if="app.name == 'Entertainment' ">
+                        <img src="/img/menu_entertainment.png" class="menu_image"/>
+                    </div>
+                    <div ng-if="app.name == 'Breaking' ">
+                        <img src="/img/menu_breaking.png" class="menu_image"/>
+                    </div>
+                    <div ng-if="app.name == 'Useful Info' ">
+                        <img src="/img/menu_practical.png" class="menu_image"/>
+                    </div>
+                    <!-- <i class="pull-left fa fa-plane"></i> -->
                 </div>
                 <a ui-sref="appDetails({appId: app._id})">
                     <div class="menu-text">
@@ -50,8 +51,10 @@
                     <button ng-show="$root.currentUser" ng-click="remove(app)"><i class="fa fa-minus-circle"></i></button>
                 </div>
             </div>
-            <!--</a>-->
         </li>
+
     </ul>
-    <p class="text-center">Number of applicaitons {{ applications.length}} </p>
+    <div id="trickle-logo">
+        <img src="/img/trickle_logo.png" />
+    </div>
 </div>
