@@ -118,3 +118,6 @@ sftp-config.json
 ### Meteor ###
 .meteor/local
 .meteor/meteorite
+
+### Node ###
+packages/*
