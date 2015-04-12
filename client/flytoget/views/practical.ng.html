@@ -1,4 +1,18 @@
 <ng-include src="'client/flytoget/views/header.ng.html'"> </ng-include>
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css" media="screen">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.min.js"></script>
+<script>
+
+    $(window).load(function() {
+        $('.gallery').flickity({
+            // options
+            prevNextButtons: false,
+            cellAlign: 'center',
+            contain: true
+        });
+    });
+
+</script>
 
 <div class="content">
 
@@ -14,7 +28,7 @@
         <span class="waiting-info">Less than {{queueTime}} minutes.</span>
     </div>
 
-    <div class="gallery js-flickity">
+    <div class="gallery">
         <div class="gallery-cell">
             <h3>GETTING TO THE CITY OF OSLO</h3>
             <p>
@@ -23,7 +37,21 @@
                 THE AIRPORT EXPRESS TRAIN, DEPARTING EVERY 10 MINUTES, WILL TAKE YOU TO OSLO CENTRAL STATION IN 19 MINUTES.
             </p>
         </div>
-        <div class="gallery-cell"></div>
-        <div class="gallery-cell"></div>
+        <div class="gallery-cell">
+            <h3>CONTACT</h3>
+
+            <h4>PHONE</h4>
+            <address><a href="tel:4781500777">815 00 777</a></address>
+
+            <h4>MAIL</h4>
+            <address><a href="mailto:flytoget@flytoget.no">FLYTOGET@FLYTOGET.NO</a></address>
+
+        </div>
+        <div class="gallery-cell">
+            <h3>Press</h3>
+            <p style="text-align: center">
+                THERE ARE CURRENTLY NO PRESS RELEASES.
+            </p>
+        </div>
     </div>
 </div>
