@@ -1,4 +1,11 @@
 Meteor.startup(function(){
+
+    if(Airports.find().count() === 0){
+        cacheAirports(function () {
+            console.log("Airports cached in database...");
+        })
+    }
+
     if(Applicatons.find().count() === 0){
 
         var applications = [

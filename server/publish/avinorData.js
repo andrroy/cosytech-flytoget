@@ -37,3 +37,8 @@ Meteor.publish("airlines", function (options, searchString) {
             ]}
         ]*/}, options );
 });
+
+
+Meteor.publish("flights", function () {
+    return Flights.find({});
+});
