@@ -1,36 +1,40 @@
 angular.module('trickle-webapp')
-    .controller("headerCtrl", ['$scope' , '$http',
-        function($scope, $http) {
-            
-            //console.log("HeaderCtrl...");
+    .controller("headerCtrl", ['$scope' , '$meteor',
+        function($scope, $meteor) {
 
-            var url = "http://api.openweathermap.org/data/2.5/weather?lat=60.1952777778&lon=11.0994444444";
-            //console.log("");
-
+            // Date
             $scope.getDateTime = new Date;
-            //console.log($scope.getDateTime);
 
-            // Simple GET request example :
-            $http.get(url).
-                success(function(data, status, headers, config) {
-                    //console.log(data.main.temp);
-                    var t = (parseFloat(data.main.temp) - 273.15);
-                    $scope.temperature = t.toFixed(1);
+            // Temp
+            var getTemp = function() {
+                $meteor.call('getTemp')
+                    .then(function(temp) {
+                        $scope.temperature = temp;
+                    }, function(err) {
+                        console.log("Temp error");
+                    });
+            };
 
-                    console.log("weather:");
-                    console.log(data.weather[0].icon);
+            $scope.temperature = getTemp();
 
-                    //$scope.icon = "icons/" + data.weather[0].icon + ".svg";
-                    $scope.icon = data.weather[0].icon + ".png";
-                    console.log($scope.icon);
+            // refresh temp every 60 sec
+            setInterval(getTemp, 60000);
 
+            // Icon
+            var getIcon = function() {
+                $meteor.call('getIcon')
+                    .then(function(icon) {
+                        $scope.icon = icon;
+                    }, function(err) {
+                        console.log("Icon error");
+                    });
+            };
 
-                }).
-                error(function(data, status, headers, config) {
-                    $scope.temperature = 0;
-                    // called asynchronously if an error occurs
-                    // or server returns response with an error status.
-                });
+            $scope.icon = getIcon();
+
+            // Refresh icon every 60 sec
+            setInterval(getIcon, 60000);
+
         }])
 
     .directive('zippy', function () {

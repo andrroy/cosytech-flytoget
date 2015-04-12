@@ -1,3 +1,5 @@
 Meteor.methods({
-    getQueueTime: getQueueTime
+    getQueueTime: getQueueTime,
+    getTemp: getTemp,
+    getIcon: getIcon
 });
