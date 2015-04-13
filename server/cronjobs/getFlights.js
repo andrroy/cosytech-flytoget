@@ -20,6 +20,8 @@ Meteor.setInterval(function() {
     $ = cheerio.load(flight_result.content);
     // Get all entries
     var flight = $('flight');
+    
+    //console.log(flight);
 
     //var id = $('flight').attr('uniqueID');
 
@@ -28,24 +30,29 @@ Meteor.setInterval(function() {
     // For each entry
     $(flight).each(function(i, entry) {
         var $ = cheerio.load(entry);
-        //var id = $.attr('uniqueID');
-        var airline = $('airline').text();
+        var airline_id = $('airline').text();
         var flight_id = $('flight_id').text();
         var schedule_time = $('schedule_time').text();
         var airport_id = $('airport').text();
-        //var airport = $('airport').text();
         var check_in = $('check_in').text();
         var gate = $('gate').text();
 
-        // Get name from local cache
-        var airport = Airports.findOne({id:airport_id.toString()});
         if(airport == null){
-            console.log("GUNNAR");
+            console.log("Airport is null?");
             airport = "NOPE";
+        }else{
+            var airport = Airports.findOne({id:airport_id.toString()});
+        }
+        if(airline == null){
+            console.log("Airline is null?");
+            airline = "NOPE";
+        }else{
+            var airline = Airlines.findOne({id:airline_id.toString()});
         }
 
-         //If id not in db
+
+        //If id not in db
         if(Flights.find({flight_id: flight_id}).count() === 0)
-            Flights.insert({ airline: airline.toString, flight_id: flight_id.toString(), schedule_time: schedule_time, airport_name: airport.name, check_in: check_in.toString(), gate: gate.toString, date: new Date()});
+            Flights.insert({ airline: airline.name.toString(), flight_id: flight_id.toString(), schedule_time: schedule_time, airport_name: airport.name.toString(), check_in: check_in.toString(), gate: gate, date: new Date()});
     });
 }, 30000);

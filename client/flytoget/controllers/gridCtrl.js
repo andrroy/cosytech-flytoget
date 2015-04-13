@@ -21,6 +21,12 @@ angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$s
             });
         });
 
+        $scope.flights = $meteor.collection(function(){
+            return Flights.find({}, {
+                sort: $scope.getReactively('sort') // TODO: Sort by time
+            });
+        });
+
        //Angular way of autorun: Watch variables:
          $scope.$watch('orderProperty', function(){
          if($scope.orderProperty)
@@ -28,7 +34,6 @@ angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$s
          });
 
         // Meteor autorun runs everything inside it, once it knows something has changed
-        // This means that
         // This creates an reactive variable
         $meteor.autorun($scope, function () {
 
@@ -38,9 +43,16 @@ angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$s
                 sort: $scope.getReactively('sort') // Sorting on the server
             }, $scope.getReactively('search'))
                 .then(function () {
-                console.log("crashing?");
                 $scope.airlineCounts = $meteor.object(Counts, "numberOfAirlines", false);
                 console.log($scope.airlineCounts.count);
+            });
+
+            $meteor.subscribe("flights", {
+                sort: $scope.getReactively('sort') // Sorting on the server
+            }, $scope.getReactively('search'))
+                .then(function () {
+                $scope.numberOfFlights = $meteor.object(Counts, "numberOfFlights", false);
+                console.log($scope.numberOfFlights.count);
             });
         });
 
@@ -51,17 +63,6 @@ angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$s
         $scope.testPageChanged = function () {
             console.log("Swipe detected");
         };
-
-
-        // Current state of Angular-Meteor API does not allow to retreve Mongo object
-        // from other than ID. In our case we try to retreve it by slug.
-        // TODO: Need solution to this.
-
-        //$scope.applications = $meteor.object(Applicatons, $stateParams.slug);
-        //$scope.applications2 = $meteor.collection(Applicatons);
-        //$scope.applications2 = $meteor.collection(Applicatons).subscribe("applications");
-
-        $scope.flights = $meteor.collection(Flights).subscribe("flights");
 
         $scope.listView = true;
 

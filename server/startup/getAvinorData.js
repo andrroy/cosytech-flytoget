@@ -38,8 +38,8 @@ cacheAirlines = function (callback) {
         var name = entry.attribs.name + "";
 
         //If id not in db
-        if(Airports.find({id: id}).count() === 0)
-            Airports.insert({ id: id.toString(), name: name.toString()});
+        if(Airlines.find({id: id}).count() === 0)
+            Airlines.insert({ id: id.toString(), name: name.toString()});
     });
     callback();
 };
