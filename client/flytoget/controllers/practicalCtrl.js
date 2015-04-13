@@ -1,8 +1,7 @@
 angular.module('trickle-webapp').controller("infoCtrl",['$scope', '$meteor', '$http',
     function($scope, $meteor, $http){
 
-        // TODO: Load from server cache instead
-        $scope.webcamFeed = "https://tjenester.avinor.no/internalservice-1.0/webcams/OSL/0";
+        $scope.webcamFeed = "img/camfeed.jpeg";
 
         var refreshWebcamFeed = function() {
             var webcamImage = document.getElementsByClassName("camfeed")[0];

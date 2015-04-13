@@ -359,11 +359,6 @@ input:focus{
   margin-left: -15px;
 }
 
-/*
-* Andreas tar forebehold om eventuelle bugs og "bad practises" som
-* måtte eksistere i koden under
-*/
-
 /* Practical view */
 
 .image-wrapper {
@@ -442,29 +437,54 @@ input:focus{
   padding-left: 20px;
 }
 
-.gallery {
-  padding-top: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 640px;
-
-  h3 {
-    color: @cosy-orange;
-    font-size: 0.8em;
-    text-align: center;
-  }
-
-  p {
-    font-size: 0.6em;
-  }
-}
-
 @media (max-width: 640px) {
 
   .gallery {
     width: 80%;
   }
+
+  .gallery-cell {
+    width: 100%;
+  }
 }
+
+@media (min-width: 640px){
+  .gallery-cell{
+    width: 640px;
+  }
+}
+
+.gallery {
+  padding-top: 40px;
+  padding-bottom: -10px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 640px;
+
+  h3, h4 {
+    color: @cosy-orange;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 0.8em;
+  }
+
+  h4 {
+    font-size: 0.6em;
+  }
+
+  p {
+    font-size: 0.6em;
+  }
+
+  address {
+    font-size: 0.5em;
+    text-align: center;
+  }
+}
+
+
 
 /* Breaking view */
 article {
