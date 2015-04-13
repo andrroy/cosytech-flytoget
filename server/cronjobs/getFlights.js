@@ -36,21 +36,21 @@ Meteor.setInterval(function() {
         var airport_id = $('airport').text();
         var check_in = $('check_in').text();
         var gate = $('gate').text();
+        
 
-        if(airport == null){
+        if(airport_id == null){
             console.log("Airport is null?");
             airport = "NOPE";
         }else{
             var airport = Airports.findOne({id:airport_id.toString()});
         }
-        if(airline == null){
+        if(airline_id == null){
             console.log("Airline is null?");
             airline = "NOPE";
         }else{
             var airline = Airlines.findOne({id:airline_id.toString()});
         }
-
-
+        
         //If id not in db
         if(Flights.find({flight_id: flight_id}).count() === 0)
             Flights.insert({ airline: airline.name.toString(), flight_id: flight_id.toString(), schedule_time: schedule_time, airport_name: airport.name.toString(), check_in: check_in.toString(), gate: gate, date: new Date()});

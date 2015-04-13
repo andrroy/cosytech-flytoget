@@ -4,7 +4,8 @@ var airline_names = "http://flydata.avinor.no/airlineNames.asp";
 
 cacheAirports = function (callback) {
 
-    var name_result = Meteor.http.get(airport_names);
+    var name_result = HTTP.getWithEncoding(airport_names, {encoding: {"from": "iso-8859-15", "to": "iso-8859-1"}});
+
     // Load content into cheerio
     $ = cheerio.load(name_result.content);
     // Get all entries
