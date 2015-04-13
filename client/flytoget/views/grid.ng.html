@@ -5,12 +5,37 @@
     <!-- See comment in gridCtrl.js about mongo retreval -->
     <!--<h1>{{ applications }}</h1>-->
 
+    <div ng-model="selectedFlight" ng-show="showInfo" id="flightSection">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="flightInfo">
+                        <div class="info-flight">
+                            <p>Flight:</p>
+                            <strong>{{selectedFlight.flight_id}}</strong>
+                        </div>
+                        <div class="separator"></div>
+                        <div class="info-flight">
+                            <p>Gate:</p>
+                            <strong>{{selectedFlight.gate}}</strong>
+                        </div>
+                        <div class="separator"></div>
+                        <div class="info-flight">
+                            <p>Boarding:</p>
+                            <strong>{{selectedFlight.schedule_time | date:"h:mm"}}</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- GRID VIEW-->
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <!--<h1>Airlines</h1>-->
-                <div class="center">
+                <div class="center searchbar">
                     <label for="filter-by"><i class="fa fa-search"></i></label>
                     <input name="filter-by" type="search" ng-model="search" placeholder="Search by flight number"/>
                 </div>
@@ -20,7 +45,7 @@
         <div class="row" ng-show="!listView">
             <div dir-paginate="flight in flights | itemsPerPage: perPage" total-items="flights.count">
                 <div class="col-xs-4">
-                    <div class="thumbnail">
+                    <div class="thumbnail" ng-click="showList()">
                         <img src="img/airline.png" class="img-responsive" alt="...">
                         <div class="caption">
                             <p>{{flight.airline}}</p>
@@ -32,13 +57,17 @@
         </div>
     </div> <!-- /GRID VIEW-->
 
+
+
     <div class="container-fluid flightList" ng-show="listView">
         <div class="row" >
             <div class="col-xs-12">
                 <ul>
                     <li ng-repeat="flight in flights" class="flight-list-item">
-                        <h1>{{flight.flight_id}} - {{flight.airport_name}}</h1>
-                        <p>Gate: {{flight.gate}} Boarding: {{flight.schedule_time | date:"h:mm"}}</p>
+                        <div ng-click="showInfoBox(flight)">
+                            <h1>{{flight.flight_id}} - {{flight.airport_name}}</h1>
+                            <p>Gate: {{flight.gate}} Boarding: {{flight.schedule_time | date:"h:mm"}}</p>
+                        </div>
                     </li>
                 </ul>
             </div>

@@ -64,7 +64,27 @@ angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$s
             console.log("Swipe detected");
         };
 
-        $scope.listView = true;
+        $scope.showList = function () {
+          console.log("CLICKKED!");
+            $scope.listView = true;
+        };
+
+        $scope.showInfo = false;
+
+        $scope.showInfoBox = function (flight) {
+
+            console.log(flight);
+
+            $scope.showInfo = true;
+
+            $scope.selectedFlight = flight;
+
+            console.log(flight.flight_id);
+            console.log(flight.gate);
+            console.log(flight.schedule_time);
+        };
+
+        $scope.listView = false;
 
         $scope.save = function () {
         };
@@ -72,4 +92,5 @@ angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$s
         $scope.reset = function () {
 
         };
+
     }]);
