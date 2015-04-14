@@ -55,4 +55,4 @@ Meteor.setInterval(function() {
         if(Flights.find({flight_id: flight_id}).count() === 0)
             Flights.insert({ airline: airline.name.toString(), flight_id: flight_id.toString(), schedule_time: schedule_time, airport_name: airport.name.toString(), check_in: check_in.toString(), gate: gate, date: new Date()});
     });
-}, 30000);
+}, 300000);

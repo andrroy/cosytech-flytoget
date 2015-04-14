@@ -138,7 +138,7 @@ ul{
 
 .greeting{
   order: 1;
-  font-size: 3vmin;
+  font-size: 1em;
 
   //background-color: #f16949;
 }
@@ -156,14 +156,6 @@ ul{
   //background-color: #399fbd;
 }
 
-
-
-#weather-icon{
-  //background-color: #399fbd;
-  //font-size: 2em;
-  //order:1;
-
-}
 #weather-text{
   order:2;
 }
@@ -233,6 +225,16 @@ a, a:hover{
   font-weight: 300;
 }
 
+.filter{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background-color: #000000;
+  opacity: 0.2;
+}
+
 .menuWrapper{
   background: url("img/bg.jpg") no-repeat left center;
 
@@ -250,9 +252,13 @@ a, a:hover{
   height: 60px;
 }
 
-#trickle-logo {
-  float:right;
-  margin-right: 5vmax;
+.bottom-logo{
+  width: 10%;
+  margin: 0 auto;
+}
+
+#trickle-logo img{
+  width: 100%;
 }
 
 
@@ -310,8 +316,7 @@ input:focus{
 .weather-icon {
   width: 20%;
   height: 20%;
-  max-width: 128px;
-  max-height: 128px;
+  max-width: 60px;
 }
 
 .pagination{
@@ -366,14 +371,17 @@ input:focus{
 /* Practical view */
 
 .image-wrapper {
-  position: relative;
+  margin-top: -10px;
+
   margin-left: auto;
   margin-right: auto;
-  margin-top: -10px;
 
   -webkit-box-shadow: inset 0px 8px 10px 0px rgba(0,0,0,0.35);
   -moz-box-shadow: inset 0px 8px 10px 0px rgba(0,0,0,0.35);
   box-shadow: inset 0px 8px 10px 0px rgba(0,0,0,0.35);
+
+
+  background-color: #f16949;
 
   img {
     max-width: 100%;
