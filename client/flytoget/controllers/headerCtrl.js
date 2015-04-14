@@ -38,12 +38,11 @@ angular.module('trickle-webapp')
         }])
 
     .directive('zippy', function () {
-        //console.log("directive");
         return {
             restrict: 'E', // Element Attribute Class Comment
             link: function (scope, element, attribute) {
                 scope.atitle = attribute.title
             },
-            template: '<h1>Rikard<h1>'
+            template: '<p>Login</p>'
         };
     });
