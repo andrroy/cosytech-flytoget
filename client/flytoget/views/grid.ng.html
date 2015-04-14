@@ -65,7 +65,7 @@
                 <ul>
                     <li ng-repeat="flight in flights" class="flight-list-item">
                         <div ng-click="showInfoBox(flight)">
-                            <h1>{{flight.flight_id}} - {{flight.airport_name}}</h1>
+                            <h2>{{flight.flight_id}} - {{flight.airport_name}}</h2>
                             <p>Gate: {{flight.gate}} Boarding: {{flight.schedule_time | date:"h:mm"}}</p>
                         </div>
                     </li>

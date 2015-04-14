@@ -234,9 +234,10 @@ a, a:hover{
 
 .menuWrapper{
   background: url("img/bg.jpg") no-repeat left center;
+
   background-size: auto;
   //background-color: #399fbd;
-  position: absolute;
+  position: fixed;
   width: 100%;
   z-index: -100;
   top: 0;
@@ -365,6 +366,11 @@ input:focus{
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  margin-top: -10px;
+
+  -webkit-box-shadow: inset 0px 8px 10px 0px rgba(0,0,0,0.35);
+  -moz-box-shadow: inset 0px 8px 10px 0px rgba(0,0,0,0.35);
+  box-shadow: inset 0px 8px 10px 0px rgba(0,0,0,0.35);
 
   img {
     max-width: 100%;
@@ -380,6 +386,8 @@ input:focus{
   background: rgba(0, 0, 0, .5);
   font-size: 0.6em;
   margin-bottom: 0;
+
+
 }
 
 @media (min-width: 640px) {
