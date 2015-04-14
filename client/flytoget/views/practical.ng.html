@@ -3,7 +3,12 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.min.js"></script>
 <script>
 
+    $(document).ready(function() {
+       $(".content").hide();
+    });
+
     $(window).load(function() {
+        $(".content").show();
         $('.gallery').flickity({
             // options
             prevNextButtons: false,
