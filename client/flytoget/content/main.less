@@ -467,3 +467,74 @@ article {
   }
 
 }
+
+.coupon-fix {
+  height: 30px;
+  background-color: #ee7f24;
+
+  a {
+    padding-left: 20px;
+    padding-top: 20px;
+    color: @white;
+  }
+}
+/* Coupon view */
+@font-face {
+  font-family: "HoboStd";
+  font-style: normal;
+  font-weight: normal;
+  src: local("HoboStd"), url("fonts/HoboStd.otf") format("truetype");
+}
+.coupon {
+  //margin-top: -20px;
+  height: 100vh;
+  background-color: #ee7f24;
+  color: @white;
+  text-transform: none;
+
+  h1, p {
+    text-align: center;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h1 {
+    font-size: 1.0em;
+    color: @white;
+    font-family: "HoboStd", serif;
+  }
+
+  input {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    //padding-top: 14%;
+    width: 70%;
+    max-width: 640px;
+    color: black;
+
+    // Reset
+    background-color: white;
+    border: 1px solid #ccc;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  input[type=text] {
+    text-align: center;
+  }
+
+  p {
+    font-size: 0.7em;
+  }
+
+  img {
+    max-height: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -100px;
+    display: block;
+  }
+}
