@@ -6,10 +6,11 @@ use ng-include.
 
 -->
 
-<header ng-controller="headerSmallCtrl" class="container-fluid header-lg">
-    <div><a href="/">Back</a></div>
-    <div class="header-wrapper">
-        <div class="greeting">{{name}}</div>
+<header ng-controller="headerSmallCtrl" class="container-fluid header-sm">
+    <div class="header-small">
+        <div class="greeting">
+            <span><a href="/"><i class="fa fa-arrow-left pull-left"></i></a></span>
+            {{name}}
         </div>
     </div>
 </header>
