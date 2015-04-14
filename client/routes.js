@@ -26,10 +26,12 @@ angular.module("trickle-webapp").config(['$urlRouterProvider', '$stateProvider',
                     if($stateParams.slug == 'info'){
                         return 'client/flytoget/views/practical.ng.html'
                     }
+                    if($stateParams.slug == 'coupon'){
+                        return 'client/flytoget/views/coupon.ng.html'
+                    }
                     return 'client/flytoget/views/grid.ng.html' // Default...
                 },
                 controllerProvider: function ($stateParams) {
-                    console.log($stateParams.slug);
                     if($stateParams.slug == 'news'){
                         console.log("navigating to news");
                         return $stateParams.slug + "Ctrl";
@@ -38,6 +40,9 @@ angular.module("trickle-webapp").config(['$urlRouterProvider', '$stateProvider',
                         return $stateParams.slug + "Ctrl";
                     }
                     if($stateParams.slug == 'info') {
+                        return $stateParams.slug + "Ctrl";
+                    }
+                    if($stateParams.slug == 'coupon') {
                         return $stateParams.slug + "Ctrl";
                     }
 
