@@ -1,0 +1,15 @@
+<!--
+ng-view directive updates the current element with the new
+data/template that comes from router, so you can make a generic
+layout and use ng-view, and if you still have a repetitive code;
+use ng-include.
+
+-->
+
+<header ng-controller="headerSmallCtrl" class="container-fluid header-lg">
+    <div><a href="/">Back</a></div>
+    <div class="header-wrapper">
+        <div class="greeting">{{name}}</div>
+        </div>
+    </div>
+</header>

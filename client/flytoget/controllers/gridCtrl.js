@@ -1,6 +1,8 @@
-angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$stateParams',
-    function($scope, $meteor, $stateParams){
-        
+angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$stateParams', 'AppData',
+    function($scope, $meteor, $stateParams, AppData){
+
+        AppData.setName($stateParams.slug);
+
         console.log("GRIDCTRL LOADED");
 
 
