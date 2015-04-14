@@ -2,12 +2,15 @@
 
 <div class="content">
 
-    <article class="article" ng-repeat="entry in newsEntries | orderBy: '-date'">
-        <a href="{{entry.link}}">
-            <p>{{entry.summary}}</p>
+    <div ng-repeat="entry in newsEntries | orderBy: '-date'">
+        <article class="article" >
             <small ng-bind="entry.date | date:'H:mm, MM/dd/yyyy'"></small>
-            <hr>
-        </a>
-    </article>
+            <br/>
+            <a href="{{entry.link}}">
+                <p>{{entry.summary}}</p>
+            </a>
+        </article>
+        <hr>
+    </div>
 
 </div>
