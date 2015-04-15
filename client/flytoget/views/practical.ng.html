@@ -2,23 +2,6 @@
 
 <link rel="stylesheet" href="flickity.css" media="screen">
 <script src="flickity.js"></script>
-<script>
-
-    $(document).ready(function() {
-       $(".content").hide();
-    });
-
-    $(window).load(function() {
-        $(".content").show();
-        $('.gallery').flickity({
-            // options
-            prevNextButtons: false,
-            cellAlign: 'center',
-            contain: true
-        });
-    });
-
-</script>
 
 <div class="content">
 
@@ -33,7 +16,7 @@
     </div>
 
     <!--<div class="row">-->
-        <div class="gallery">
+        <div class="gallery js-flickity" data-flickity-options='{ "cellAlign": "center", "prevNextButtons": false, "contain": true}'>
             <div class="gallery-cell">
                 <h3>GETTING TO THE CITY OF OSLO</h3>
                 <p>
