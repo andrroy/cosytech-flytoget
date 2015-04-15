@@ -30,7 +30,7 @@ angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$s
         });
 
        //Angular way of autorun: Watch variables:
-         $scope.$watch('orderProperty', function(){
+         $scope.$watch('orderProperty',function(){
          if($scope.orderProperty)
              $scope.sort = {name : parseInt($scope.orderProperty)};
          });

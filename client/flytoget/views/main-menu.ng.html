@@ -41,6 +41,9 @@
                     <div ng-if="app.name == 'Useful Info' ">
                         <img src="/img/menu_practical.png" class="menu_image"/>
                     </div>
+                    <div ng-if="!app.builtIn">
+                        <img src="/img/menu_practical.png" class="menu_image"/>
+                    </div>
                     <!-- <i class="pull-left fa fa-plane"></i> -->
                 </div>
                 <a ui-sref="appDetails({slug: app.slug})">

@@ -1,4 +1,4 @@
-angular.module("trickle-webapp").factory('AppData',
+angular.module("trickle-webapp").factory('AppData', [
     function nameFactory () {
 
     var appData = {
@@ -13,4 +13,4 @@ angular.module("trickle-webapp").factory('AppData',
             appData.Name = name;
         }
     };
-});
+}]);

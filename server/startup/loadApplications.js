@@ -26,7 +26,7 @@ Meteor.startup(function(){
         ];
 
         for(var i = 0; i<applications.length; i++){
-            Applicatons.insert({name: applications[i].name, slug: applications[i].slug});
+            Applicatons.insert({name: applications[i].name, slug: applications[i].slug, builtIn: 'True'});
         }
     }
 });
