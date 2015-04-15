@@ -2,24 +2,45 @@
 
 <div class="content">
 
-    <div ng-model="selectedFlight" ng-if="showInfo" id="flightSection">
+    <div ng-model="selectedFlight" ng-if="showInfo">
         <div class="container-fluid">
             <div class="row">
+                <div class="col-xs-12 text-center hero">
+                    <div class="hero-bg">
+                    </div>
+                        <h1 class="">Flight <span class="orange">{{selectedFlight.flight_id}}</span></h1>
+
+                        <div class="block">
+                            <img src="/icons/acent.png" class="small-icon" alt=""/>
+                            <h3><strong>From:</strong> Oslo</h3>
+                        </div>
+
+                        <div class="block">
+                            <img src="/icons/decent.png" class="small-icon" alt=""/>
+                            <h3><strong>To:</strong> {{selectedFlight.airport_name}}</h3>
+                        </div>
+
+                </div>
+            </div>
+            <div class="row" id="flightSection">
                 <div class="col-xs-12">
                     <div class="flightInfo">
                         <div class="info-flight">
-                            <p>Flight:</p>
-                            <strong>{{selectedFlight.flight_id}}</strong>
+                            <p>Flight:<br/>
+                                <strong>{{selectedFlight.flight_id}}</strong>
+                            </p>
                         </div>
                         <div class="separator"></div>
                         <div class="info-flight">
-                            <p>Gate:</p>
-                            <strong>{{getGate(selectedFlight)}}</strong>
+                            <p>Gate:<br/>
+                                <strong>{{getGate(selectedFlight)}}</strong>
+                            </p>
                         </div>
                         <div class="separator"></div>
                         <div class="info-flight">
-                            <p>Boarding:</p>
-                            <strong>{{selectedFlight.schedule_time | date:"h:mm"}}</strong>
+                            <p>Boarding:<br/>
+                                <strong>{{selectedFlight.schedule_time | date:"h:mm"}}</strong>
+                            </p>
                         </div>
                     </div>
                 </div>

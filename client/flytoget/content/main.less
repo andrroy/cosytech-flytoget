@@ -26,12 +26,8 @@ body {
 }
 
 #flightSection{
-  margin-top: -10px;
-
-  -webkit-box-shadow: inset 0 8px 10px 0 rgba(0,0,0,0.35);
-  -moz-box-shadow: inset 0 8px 10px 0 rgba(0,0,0,0.35);
-  box-shadow: inset 0 8px 10px 0 rgba(0,0,0,0.35);
-  height: 120px;
+  margin-top: -15px;
+  height: 90px;
   background-color: @cosy-orange-dk;
 }
 
@@ -45,9 +41,40 @@ body {
 
   color: white;
 
-
   text-align: center;
+  line-height: 1.2em;
 }
+
+.icon{
+  width: 60px;
+  height: 60px;
+}
+
+.acent{
+  .icon;
+}
+.decent{
+  .icon;
+}
+
+.hero h1{
+  font-weight: 600;
+  color: white;
+  text-transform: none;
+}
+
+.hero h3{
+  text-transform: none;
+  font-weight: 500;
+  color: white;
+}
+
+.small-icon {
+  width: 40px;
+  height: 40px;
+}
+
+
 
 .searchbar{
   margin-top: 20px;
@@ -55,9 +82,9 @@ body {
 }
 
 .separator{
-  height: 80px;
+  height: 50px;
   width: 1px;
-  border-left: solid 1px @white;
+  border-left: solid 1px @cosy-orange-dker;
 }
 
 ul{
@@ -92,6 +119,42 @@ ul{
 
 .flight-list-item{
   //.underline(@cosy-grey-lt);
+}
+
+.hero{
+  background: url("/img/plane2.jpg") no-repeat center center;
+  background-size: cover;
+  z-index: -43;
+  margin-top: -10px;
+  height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.shadow{
+  text-shadow: 0px 0px 21px rgba(150, 150, 150, 0.94);
+}
+
+.thin{
+  font-weight: 200;
+}
+
+.block{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.block img{
+  float: left;
+  margin-right: 10px;
+  margin-top: 10px;
 }
 
 .header{
@@ -129,6 +192,11 @@ ul{
   .header;
   text-align: center;
   color: @white;
+
+  -webkit-box-shadow: 0 8px 10px 0 rgba(0,0,0,0.35);
+  -moz-box-shadow: 0 8px 10px 0 rgba(0,0,0,0.35);
+  box-shadow: 0 8px 10px 0 rgba(0,0,0,0.35);
+
   h1{
     color: white;
   }
