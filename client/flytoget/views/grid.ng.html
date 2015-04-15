@@ -81,7 +81,7 @@
         <div class="row" >
             <div class="col-xs-12">
                 <ul>
-                    <li ng-repeat="flight in flights | airlineFltr:selectedAirline" class="flight-list-item">
+                    <li ng-repeat="flight in flights" class="flight-list-item">
                         <div ng-click="showInfoBox(flight)">
                             <h2>{{flight.flight_id}} - {{flight.airport_name}}</h2>
                             <p>Gate: {{getGate(flight)}} Boarding: {{flight.schedule_time | date:"h:mm"}}</p>
@@ -91,15 +91,5 @@
                 </ul>
             </div>
         </div>
-    </div>
-
-
-    <div ng-show="$root.currentUser">
-        <input ng-model="app.name"/>
-        <input ng-model="app.description"/>
-
-        <button ng-click="save()">Save</button>
-        <button ng-click="reset()">Reset</button>
-        <button><a href="/overview"></a>Cancel</button>
     </div>
 </div>

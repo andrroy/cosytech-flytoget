@@ -7,7 +7,7 @@ angular.module("trickle-webapp").config(['$urlRouterProvider', '$stateProvider',
             .state('login', {
                 url: '/login',
                 templateUrl: 'client/flytoget/views/login.ng.html',
-                controller: 'headerCtrl'
+                controller: 'loginCtrl'
             })
             .state('appOverview', {
                 url: '/',
@@ -45,7 +45,6 @@ angular.module("trickle-webapp").config(['$urlRouterProvider', '$stateProvider',
                     if($stateParams.slug == 'coupon') {
                         return $stateParams.slug + "Ctrl";
                     }
-
                     var ctrlName = "gridCtrl"; // TODO: Fix this.
                     console.log("navigating to " + ctrlName);
                     return ctrlName;

@@ -90,7 +90,7 @@ angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$s
             $scope.selectedAirline = airline.name;
             $scope.listView = true;
         };
-        
+
         console.log("listview: " + $scope.listView);
 
         $scope.showInfo = false;
@@ -118,5 +118,4 @@ angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$s
         $scope.reset = function () {
 
         };
-
     }]);
