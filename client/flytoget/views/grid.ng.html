@@ -2,7 +2,7 @@
 
 <div class="content">
 
-    <div ng-model="selectedFlight" ng-show="showInfo" id="flightSection">
+    <div ng-model="selectedFlight" ng-if="showInfo" id="flightSection">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-12">
@@ -14,7 +14,7 @@
                         <div class="separator"></div>
                         <div class="info-flight">
                             <p>Gate:</p>
-                            <strong>{{selectedFlight.gate}}</strong>
+                            <strong>{{getGate(selectedFlight)}}</strong>
                         </div>
                         <div class="separator"></div>
                         <div class="info-flight">
@@ -40,12 +40,12 @@
         </div>
 
         <div class="row" ng-show="!listView">
-            <div dir-paginate="flight in flights | itemsPerPage: perPage" total-items="flights.count">
+            <div dir-paginate="airline in miniairlines | itemsPerPage: perPage" total-items="flights.count">
                 <div class="col-xs-4">
                     <div class="thumbnail" ng-click="showList()">
-                        <img src="img/airline.png" class="img-responsive" alt="...">
+                        <img src="icons/airlines/{{airline.icon}}" class="img-responsive" alt="...">
                         <div class="caption">
-                            <p>{{flight.airline}}</p>
+                            <p>{{airline.name}}</p>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                     <li ng-repeat="flight in flights" class="flight-list-item">
                         <div ng-click="showInfoBox(flight)">
                             <h2>{{flight.flight_id}} - {{flight.airport_name}}</h2>
-                            <p>Gate: {{flight.gate}} Boarding: {{flight.schedule_time | date:"h:mm"}}</p>
+                            <p>Gate: {{getGate(flight)}} Boarding: {{flight.schedule_time | date:"h:mm"}}</p>
                         </div>
                     </li>
                 </ul>

@@ -15,6 +15,7 @@ angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$s
 
         // Shorthand version for subscribing - does not allow parameters to be added.
         //$scope.airlines = $meteor.collection(Airlines).subscribe("airlines");        console.log($scope.airlines);
+        $scope.miniairlines = $meteor.collection(MiniAirlines).subscribe("mini-airlines");
 
         // Long version with sorting parameters
         $scope.airlines = $meteor.collection(function(){
@@ -57,6 +58,12 @@ angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$s
                 console.log($scope.numberOfFlights.count);
             });
         });
+
+        $scope.getGate = function (flight) {
+            if(flight.gate == ""){
+                return "N/A";
+            }else return flight.gate;
+        };
 
         $scope.pageChanged = function (newPage) {
             $scope.page = newPage;

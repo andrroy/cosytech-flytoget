@@ -13,13 +13,33 @@ Meteor.startup(function(){
     }
 
     // Initialize flights
+    // A bit overkill, but it's super important that this is run after the two others...
     if(Flights.find().count() === 0){
         getFlights(function () {
             console.log("Flights loaded cached in database...");
 
             // Is triggered every 5 minutes
             Meteor.setInterval(getFlights, 300000);
-        })
+
+        });
+    }
+
+    if(MiniAirlines.find().count() === 0){
+        var airlines = [
+            {'name': 'Finnair','icon':'finnair.png'},
+            {'name': 'Turkish Airlines','icon':'turkish.png'},
+            {'name': 'Tap Portugal','icon':'tap.png'},
+            {'name': 'Air France','icon':'airfrance.png'},
+            {'name': 'Widerøe','icon':'wid.png'},
+            {'name': 'KLM','icon':'klm.png'},
+            {'name': 'SAS','icon':'sas.png'},
+            {'name': 'Lufthansa','icon':'lufthansa.png'},
+            {'name': 'Thomas Cook','icon':'thomascook.png'}
+        ];
+
+        for(var i = 0; i<airlines.length; i++){
+            MiniAirlines.insert({name: airlines[i].name, icon: airlines[i].icon});
+        }
     }
 
     if(Applicatons.find().count() === 0){

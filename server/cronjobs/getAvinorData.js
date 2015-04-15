@@ -26,7 +26,7 @@ cacheAirports = function (callback) {
 
 cacheAirlines = function (callback) {
 
-    var name_result = Meteor.http.get(airline_names);
+    var name_result = HTTP.getWithEncoding(airline_names, {encoding: {"from": "iso-8859-15", "to": "iso-8859-1"}});
     // Load content into cheerio
     $ = cheerio.load(name_result.content);
     // Get all entries

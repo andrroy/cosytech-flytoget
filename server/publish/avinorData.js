@@ -1,5 +1,7 @@
 //The name [airlines] is what the client have to use in order to subscribe
 
+
+
 Meteor.publish("airlines", function (options, searchString) {
 
     if(searchString == null){
