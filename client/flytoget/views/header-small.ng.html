@@ -8,9 +8,11 @@ use ng-include.
 
 <header ng-controller="headerSmallCtrl" class="container-fluid header-sm">
     <div class="header-sm-text">
-        <div class="backArrow">
-            <span><a href="/"><i class="fa fa-chevron-left pull-left"></i></a></span>
-        </div>
+        <a href="/">
+            <div class="backArrow">
+                <span><i class="fa fa-chevron-left pull-left"></i></span>
+            </div>
+        </a>
         <div class="heading">
             <h1>{{name}}</h1>
         </div>

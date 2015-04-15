@@ -27,14 +27,15 @@ Meteor.startup(function(){
     if(MiniAirlines.find().count() === 0){
         var airlines = [
             {'name': 'Finnair','icon':'finnair'},
-            {'name': 'Turkish Airlines','icon':'turkish'},
             {'name': 'Tap Portugal','icon':'tap'},
             {'name': 'Air France','icon':'airfrance'},
             {'name': 'Widerøe','icon':'wid'},
             {'name': 'KLM','icon':'klm'},
             {'name': 'SAS','icon':'sas'},
             {'name': 'Lufthansa','icon':'lufthansa'},
-            {'name': 'Thomas Cook','icon':'thomascook'}
+            {'name': 'Thomas Cook','icon':'thomascook'},
+            {'name': 'Turkish Airlines','icon':'turkish'}
+
         ];
 
         for(var i = 0; i<airlines.length; i++){
