@@ -1,43 +1,98 @@
-<ng-include src="'client/flytoget/views/header.ng.html'"> </ng-include>
+<ng-include src="'client/flytoget/views/header-small.ng.html'"> </ng-include>
 
 <div class="content">
 
-    <!-- See comment in gridCtrl.js about mongo retreval -->
-    <!--<h1>{{ applications }}</h1>-->
+    <div ng-model="selectedFlight" ng-if="showInfo">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 text-center hero">
+                    <div class="hero-bg">
+                    </div>
+                        <h1 class="">Flight <span class="orange">{{selectedFlight.flight_id}}</span></h1>
 
+                        <div class="block">
+                            <img src="/icons/acent.png" class="small-icon" alt=""/>
+                            <h3><strong>From:</strong> Oslo</h3>
+                        </div>
 
+                        <div class="block">
+                            <img src="/icons/decent.png" class="small-icon" alt=""/>
+                            <h3><strong>To:</strong> {{selectedFlight.airport_name}}</h3>
+                        </div>
+
+                </div>
+            </div>
+            <div class="row" id="flightSection">
+                <div class="col-xs-12">
+                    <div class="flightInfo">
+                        <div class="info-flight">
+                            <p>Flight:<br/>
+                                <strong>{{selectedFlight.flight_id}}</strong>
+                            </p>
+                        </div>
+                        <div class="separator"></div>
+                        <div class="info-flight">
+                            <p>Gate:<br/>
+                                <strong>{{getGate(selectedFlight)}}</strong>
+                            </p>
+                        </div>
+                        <div class="separator"></div>
+                        <div class="info-flight">
+                            <p>Boarding:<br/>
+                                <strong>{{selectedFlight.schedule_time | date:"h:mm"}}</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GRID VIEW-->
     <div class="container">
         <div class="row">
-
-
             <div class="col-xs-12">
                 <!--<h1>Airlines</h1>-->
-                <div class="center">
+                <div class="center searchbar">
                     <label for="filter-by"><i class="fa fa-search"></i></label>
                     <input name="filter-by" type="search" ng-model="search" placeholder="Search by flight number"/>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <div dir-paginate="airline in airlines | itemsPerPage: perPage" total-items="airlineCounts.count">
+        <div class="row" ng-show="!listView">
+            <div dir-paginate="airline in miniairlines | itemsPerPage: perPage" total-items="flights.count">
                 <div class="col-xs-4">
-                    <div class="thumbnail">
-                        <img src="img/airline.png" class="img-responsive" alt="...">
+                    <div class="thumbnail" ng-click="showList(airline)">
+                        <img ng-src="/icons/airlines/{{airline.icon}}.png" class="img-responsive" alt="...">
                         <div class="caption">
                             <p>{{airline.name}}</p>
                         </div>
                     </div>
                 </div>
             </div>
+            <!--<dir-pagination-controls class="paginationControls" style on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>-->
         </div>
+    </div> <!-- /GRID VIEW-->
 
-        <div class="row">
-            <div class="col-xs-6">
-                <dir-pagination-controls style on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+
+
+    <div class="container-fluid flightList" ng-if="listView" ng-model="selectedAirline">
+        <div class="row" >
+            <div class="col-xs-12">
+                <ul>
+                    <li ng-repeat="flight in flights | airlineFltr:selectedAirline" class="flight-list-item">
+                        <div ng-click="showInfoBox(flight)">
+                            <h2>{{flight.flight_id}} - {{flight.airport_name}}</h2>
+                            <p>Gate: {{getGate(flight)}} Boarding: {{flight.schedule_time | date:"h:mm"}}</p>
+                            <hr/>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
+
 
     <div ng-show="$root.currentUser">
         <input ng-model="app.name"/>

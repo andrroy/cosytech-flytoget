@@ -33,15 +33,20 @@ getIcon = function() {
 };
 
 updateWeather = function() {
-    var result = Meteor.http.get(url);
-    var response = JSON.parse(result.content);
+    try {
+        var result = Meteor.http.get(url);
+        var response = JSON.parse(result.content);
 
-    temp = (parseFloat(response.main.temp) - 273.15).toFixed(1);
+        temp = (parseFloat(response.main.temp) - 273.15).toFixed(1);
 
-    icon = iconHack[response.weather[0].icon];
-    // Default to cloudy if no matching icon found
-    if(!icon)
-        icon = "cloudy.png";
+        icon = iconHack[response.weather[0].icon];
+        // Default to cloudy if no matching icon found
+        if(!icon)
+            icon = "cloudy.png";
+    }
+    catch(err) {
+        console.log(err);
+    }
 };
 
 // Is triggered every minute

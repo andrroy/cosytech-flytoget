@@ -18,3 +18,4 @@ http
 meteorhacks:npm
 
 npm-container
+rebolon:http-plugin-encoding

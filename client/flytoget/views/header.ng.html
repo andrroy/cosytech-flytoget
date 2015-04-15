@@ -11,7 +11,7 @@ use ng-include.
         <div class="greeting">Hi, and welcome aboard</div>
         <div class="weather">
             <!--<img class="icon-small" src="{{icon}}" alt="{{icon}}"/>-->
-            <img src="icons/{{icon}}" alt="{{icon}}" class="weather-icon"/>
+            <img src="icons/weather/{{icon}}" alt="{{icon}}" class="img responsive weather-icon"/>
 
             <div id="weather-text">{{ getDateTime | date: "EEEE"}}, <span id="weather-text-dark">{{ getDateTime | date: "MMMM d"}}</span></div>
 

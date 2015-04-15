@@ -1,4 +1,47 @@
 Meteor.startup(function(){
+
+    if(Airports.find().count() === 0){
+        cacheAirports(function () {
+            console.log("Airports cached in database...");
+        })
+    }
+
+    if(Airlines.find().count() === 0){
+        cacheAirlines(function(){
+            console.log("Airlines cached in database...");
+        })
+    }
+
+    // Initialize flights
+    // A bit overkill, but it's super important that this is run after the two others...
+    if(Flights.find().count() === 0){
+        getFlights(function () {
+            console.log("Flights loaded cached in database...");
+
+            // Is triggered every 5 minutes
+            Meteor.setInterval(getFlights(), 300000);
+
+        });
+    }
+
+    if(MiniAirlines.find().count() === 0){
+        var airlines = [
+            {'name': 'Finnair','icon':'finnair'},
+            {'name': 'Turkish Airlines','icon':'turkish'},
+            {'name': 'Tap Portugal','icon':'tap'},
+            {'name': 'Air France','icon':'airfrance'},
+            {'name': 'Widerøe','icon':'wid'},
+            {'name': 'KLM','icon':'klm'},
+            {'name': 'SAS','icon':'sas'},
+            {'name': 'Lufthansa','icon':'lufthansa'},
+            {'name': 'Thomas Cook','icon':'thomascook'}
+        ];
+
+        for(var i = 0; i<airlines.length; i++){
+            MiniAirlines.insert({name: airlines[i].name, icon: airlines[i].icon});
+        }
+    }
+
     if(Applicatons.find().count() === 0){
 
         var applications = [
@@ -13,32 +56,7 @@ Meteor.startup(function(){
         ];
 
         for(var i = 0; i<applications.length; i++){
-            Applicatons.insert({name: applications[i].name, slug: applications[i].slug});
-        }
-    }
-
-
-    if(Airlines.find().count() === 0){
-        var airlines = [
-            {'name': 'Finnair','icon':'someicon.png'},
-            {'name': 'Turkish Airlines','icon':'someicon.png'},
-            {'name': 'Tap Portugal','icon':'someicon.png'},
-            {'name': 'Air France','icon':'someicon.png'},
-            {'name': 'Widerøe','icon':'someicon.png'},
-            {'name': 'KLM','icon':'someicon.png'},
-            {'name': 'SAS','icon':'someicon.png'},
-            {'name': 'Lufthansa','icon':'someicon.png'},
-            {'name': 'Norwegian','icon':'someicon.png'},
-            {'name': 'South African','icon':'someicon.png'},
-            {'name': 'Svenskefly','icon':'someicon.png'},
-            {'name': 'American Wings','icon':'someicon.png'},
-            {'name': 'Flight Simulator','icon':'someicon.png'},
-            {'name': 'Haiti Air','icon':'someicon.png'},
-            {'name': 'Thai Airways','icon':'someicon.png'}
-        ];
-
-        for(var i = 0; i<airlines.length; i++){
-            Airlines.insert({name: airlines[i].name, icon: airlines[i].icon});
+            Applicatons.insert({name: applications[i].name, slug: applications[i].slug, builtIn: 'True'});
         }
     }
 });
