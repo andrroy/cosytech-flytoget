@@ -29,7 +29,7 @@ angular.module("trickle-webapp").config(['$urlRouterProvider', '$stateProvider',
                     if($stateParams.slug == 'coupon'){
                         return 'client/flytoget/views/coupon.ng.html'
                     }
-                    return 'client/flytoget/views/grid.ng.html' // Default...
+                    return 'client/flytoget/views/coupon.ng.html' // Default...
                 },
                 controllerProvider: function ($stateParams) {
                     if($stateParams.slug == 'news'){
