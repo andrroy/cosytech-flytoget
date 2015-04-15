@@ -62,7 +62,7 @@ getFlights = function(callback) {
                 date: new Date()
             });
     });
-    callback();
+    //callback();
 };
 
 

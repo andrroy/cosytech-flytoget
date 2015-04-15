@@ -30,33 +30,43 @@ angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$s
             });
         });
 
-       //Angular way of autorun: Watch variables:
-         $scope.$watch('orderProperty',function(){
-         if($scope.orderProperty)
-             $scope.sort = {name : parseInt($scope.orderProperty)};
-         });
+        //Angular way of autorun: Watch variables:
+        $scope.$watch('orderProperty',function(){
+            if($scope.orderProperty)
+                $scope.sort = {name : parseInt($scope.orderProperty)};
+        });
+
+        $scope.$watch('search', function (value) {
+            if(value){
+                if(value.toString().length > 0) {
+                    $scope.listView = true;
+                }
+            }else{
+                $scope.listView = false;
+            }
+        });
 
         // Meteor autorun runs everything inside it, once it knows something has changed
         // This creates an reactive variable
         $meteor.autorun($scope, function () {
 
-/*            $meteor.subscribe("airlines", {
-                limit: parseInt($scope.getReactively('perPage')), // So that meteor can get updates from angular
-                skip: (parseInt($scope.getReactively('page'))- 1) * parseInt($scope.getReactively('perPage')),
-                sort: $scope.getReactively('sort') // Sorting on the server
-            }, $scope.getReactively('search'))
-                .then(function () {
-                $scope.airlineCounts = $meteor.object(Counts, "numberOfAirlines", false);
-                console.log($scope.airlineCounts.count);
-            });*/
+            /*            $meteor.subscribe("airlines", {
+             limit: parseInt($scope.getReactively('perPage')), // So that meteor can get updates from angular
+             skip: (parseInt($scope.getReactively('page'))- 1) * parseInt($scope.getReactively('perPage')),
+             sort: $scope.getReactively('sort') // Sorting on the server
+             }, $scope.getReactively('search'))
+             .then(function () {
+             $scope.airlineCounts = $meteor.object(Counts, "numberOfAirlines", false);
+             console.log($scope.airlineCounts.count);
+             });*/
 
             $meteor.subscribe("flights", {
                 sort: $scope.getReactively('sort') // Sorting on the server
             }, $scope.getReactively('search'))
                 .then(function () {
-                $scope.numberOfFlights = $meteor.object(Counts, "numberOfFlights", false);
-                console.log($scope.numberOfFlights.count);
-            });
+                    $scope.numberOfFlights = $meteor.object(Counts, "numberOfFlights", false);
+                    console.log($scope.numberOfFlights.count);
+                });
         });
 
         $scope.getGate = function (flight) {
@@ -73,12 +83,19 @@ angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$s
             console.log("Swipe detected");
         };
 
-        $scope.showList = function () {
-          console.log("CLICKKED!");
+        $scope.showList = function (airline) {
+            console.log(airline);
+            console.log("CLICKKED!");
+
+            $scope.selectedAirline = airline.name;
             $scope.listView = true;
         };
+        
+        console.log("listview: " + $scope.listView);
 
         $scope.showInfo = false;
+
+        $scope.selectedAirline = '';
 
         $scope.showInfoBox = function (flight) {
 

@@ -42,7 +42,7 @@
         <div class="row" ng-show="!listView">
             <div dir-paginate="airline in miniairlines | itemsPerPage: perPage" total-items="flights.count">
                 <div class="col-xs-4">
-                    <div class="thumbnail" ng-click="showList()">
+                    <div class="thumbnail" ng-click="showList(airline)">
                         <img src="icons/airlines/{{airline.icon}}" class="img-responsive" alt="...">
                         <div class="caption">
                             <p>{{airline.name}}</p>
@@ -56,11 +56,11 @@
 
 
 
-    <div class="container-fluid flightList" ng-show="listView">
+    <div class="container-fluid flightList" ng-if="listView" ng-model="selectedAirline">
         <div class="row" >
             <div class="col-xs-12">
                 <ul>
-                    <li ng-repeat="flight in flights" class="flight-list-item">
+                    <li ng-repeat="flight in flights | airlineFltr:selectedAirline" class="flight-list-item">
                         <div ng-click="showInfoBox(flight)">
                             <h2>{{flight.flight_id}} - {{flight.airport_name}}</h2>
                             <p>Gate: {{getGate(flight)}} Boarding: {{flight.schedule_time | date:"h:mm"}}</p>
