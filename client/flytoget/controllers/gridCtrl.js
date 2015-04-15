@@ -41,6 +41,7 @@ angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$s
                     $scope.listView = true;
                 }
             }else{
+                $scope.showInfo = false;
                 $scope.listView = false;
             }
         });
