@@ -29,34 +29,35 @@
             </li>-->
             <li ng-repeat="app in applications">
                 <!--<a ui-sref="appDetails({appId: app._id})">-->
-                <div class="round-box">
-                    <div class="menu-icon">
-                        <div ng-if="app.name == 'Flight' ">
-                            <img src="/img/menu_plane.png" class="menu_image img-responsive"/>
+                <a ui-sref="appDetails({slug: app.slug})">
+                    <div class="round-box">
+                        <div class="menu-icon">
+                            <div ng-if="app.name == 'Flight' ">
+                                <img src="/img/menu_plane.png" class="menu_image img-responsive"/>
+                            </div>
+                            <div ng-if="app.name == 'Entertainment' ">
+                                <img src="/img/menu_entertainment.png" class="menu_image img-responsive"/>
+                            </div>
+                            <div ng-if="app.name == 'Breaking' ">
+                                <img src="/img/menu_breaking.png" class="menu_image img-responsive"/>
+                            </div>
+                            <div ng-if="app.name == 'Useful Info' ">
+                                <img src="/img/menu_practical.png" class="menu_image img-responsive"/>
+                            </div>
+                            <div ng-if="!app.builtIn">
+                                <img src="/img/menu_practical.png" class="menu_image img-responsive"/>
+                            </div>
+                            <!-- <i class="pull-left fa fa-plane"></i> -->
                         </div>
-                        <div ng-if="app.name == 'Entertainment' ">
-                            <img src="/img/menu_entertainment.png" class="menu_image img-responsive"/>
-                        </div>
-                        <div ng-if="app.name == 'Breaking' ">
-                            <img src="/img/menu_breaking.png" class="menu_image img-responsive"/>
-                        </div>
-                        <div ng-if="app.name == 'Useful Info' ">
-                            <img src="/img/menu_practical.png" class="menu_image img-responsive"/>
-                        </div>
-                        <div ng-if="!app.builtIn">
-                            <img src="/img/menu_practical.png" class="menu_image img-responsive"/>
-                        </div>
-                        <!-- <i class="pull-left fa fa-plane"></i> -->
-                    </div>
-                    <a ui-sref="appDetails({slug: app.slug})">
                         <div class="menu-text">
                             {{app.name}}
                         </div>
-                    </a>
-                    <div class="menu-empty">
-                        <button ng-show="$root.currentUser" ng-click="remove(app)"><i class="fa fa-minus-circle"></i></button>
+                        <div class="menu-empty">
+                            <button ng-show="$root.currentUser" ng-click="remove(app)"><i class="fa fa-minus-circle"></i></button>
+                        </div>
                     </div>
-                </div>
+                </a>
+
             </li>
 
         </ul>
