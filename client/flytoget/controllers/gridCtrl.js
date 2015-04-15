@@ -39,7 +39,7 @@ angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$s
         // This creates an reactive variable
         $meteor.autorun($scope, function () {
 
-            $meteor.subscribe("airlines", {
+/*            $meteor.subscribe("airlines", {
                 limit: parseInt($scope.getReactively('perPage')), // So that meteor can get updates from angular
                 skip: (parseInt($scope.getReactively('page'))- 1) * parseInt($scope.getReactively('perPage')),
                 sort: $scope.getReactively('sort') // Sorting on the server
@@ -47,7 +47,7 @@ angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$s
                 .then(function () {
                 $scope.airlineCounts = $meteor.object(Counts, "numberOfAirlines", false);
                 console.log($scope.airlineCounts.count);
-            });
+            });*/
 
             $meteor.subscribe("flights", {
                 sort: $scope.getReactively('sort') // Sorting on the server
