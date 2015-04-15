@@ -4,9 +4,7 @@
 
     <div ng-repeat="entry in newsEntries | orderBy: '-date'">
         <article class="article" >
-            <small ng-bind="entry.date | date:'H:mm, MM/dd/yyyy'"></small>
-            <br/>
-            <a href="{{entry.link}}">
+            <h6><small class="meta" ng-bind="entry.date | date:'H:mm, MM/dd/yyyy'"></small></h6><a href="{{entry.link}}">
                 <p>{{entry.summary}}</p>
             </a>
         </article>

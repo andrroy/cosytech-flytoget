@@ -6,8 +6,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-12 text-center hero">
-                    <div class="hero-bg">
-                    </div>
+                    <div class="hero-bg"></div>
+
+                    <div class="hero-text">
                         <h1 class="">Flight <span class="orange">{{selectedFlight.flight_id}}</span></h1>
 
                         <div class="block">
@@ -19,6 +20,7 @@
                             <img src="/icons/decent.png" class="small-icon" alt=""/>
                             <h3><strong>To:</strong> {{selectedFlight.airport_name}}</h3>
                         </div>
+                    </div>
 
                 </div>
             </div>
@@ -54,7 +56,7 @@
             <div class="col-xs-12">
                 <!--<h1>Airlines</h1>-->
                 <div class="center searchbar">
-                    <label for="filter-by"><i class="fa fa-search"></i></label>
+                    <label for="filter-by"><i class="fa fa-search">&nbsp;</i></label>
                     <input name="filter-by" type="search" ng-model="search" placeholder="Search by flight number"/>
                 </div>
             </div>
@@ -63,11 +65,9 @@
         <div class="row" ng-show="!listView">
             <div dir-paginate="airline in miniairlines | itemsPerPage: perPage" total-items="flights.count">
                 <div class="col-xs-4">
-                    <div class="thumbnail" ng-click="showList(airline)">
+                    <div class="clearfix thumbnail" ng-click="showList(airline)">
                         <img ng-src="/icons/airlines/{{airline.icon}}.png" class="img-responsive" alt="...">
-                        <div class="caption">
-                            <p>{{airline.name}}</p>
-                        </div>
+                        <p>{{airline.name}}</p>
                     </div>
                 </div>
             </div>
