@@ -19,7 +19,7 @@ Meteor.startup(function(){
             console.log("Flights loaded cached in database...");
 
             // Is triggered every 5 minutes
-            Meteor.setInterval(getFlights, 300000);
+            Meteor.setInterval(getFlights(), 300000);
 
         });
     }
