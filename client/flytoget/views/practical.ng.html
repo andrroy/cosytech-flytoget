@@ -4,6 +4,10 @@
 <script src="flickity.js"></script>
 <script>
 
+    $(document).ready(function() {
+       $(".content").hide();
+    });
+
     $(window).load(function() {
         $(".content").show();
         $('.gallery').flickity({
