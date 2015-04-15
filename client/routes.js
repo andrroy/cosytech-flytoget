@@ -29,6 +29,9 @@ angular.module("trickle-webapp").config(['$urlRouterProvider', '$stateProvider',
                     if($stateParams.slug == 'coupon'){
                         return 'client/flytoget/views/coupon.ng.html'
                     }
+                    if($stateParams.slug == 'flight'){
+                        return 'client/flytoget/views/grid.ng.html'
+                    }
                     return 'client/flytoget/views/coupon.ng.html' // Default...
                 },
                 controllerProvider: function ($stateParams) {
@@ -44,6 +47,9 @@ angular.module("trickle-webapp").config(['$urlRouterProvider', '$stateProvider',
                     }
                     if($stateParams.slug == 'coupon') {
                         return $stateParams.slug + "Ctrl";
+                    }
+                    if($stateParams.slug == 'flight'){
+                        return "gridCtrl";
                     }
                     var ctrlName = "gridCtrl"; // TODO: Fix this.
                     console.log("navigating to " + ctrlName);
