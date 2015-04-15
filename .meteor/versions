@@ -7,7 +7,7 @@ angularui:angular-ui-router@0.2.13_3
 autoupdate@1.2.1
 base64@1.0.3
 binary-heap@1.0.3
-blaze@2.1.1
+blaze@2.1.2
 blaze-tools@1.0.3
 boilerplate-generator@1.0.3
 callback-hook@1.0.3
@@ -58,12 +58,12 @@ spacebars@1.0.6
 spacebars-compiler@1.0.6
 srp@1.0.3
 templating@1.1.1
-tmeasday:publish-counts@0.3.4
+tmeasday:publish-counts@0.3.6
 tracker@1.0.7
 twbs:bootstrap@3.3.4
 ui@1.0.6
 underscore@1.0.3
-urigo:angular@0.8.2
+urigo:angular@0.8.4
 urigo:angular-utils-pagination@1.0.5
 url@1.0.4
 webapp@1.2.0

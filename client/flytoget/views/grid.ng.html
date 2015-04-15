@@ -43,7 +43,7 @@
             <div dir-paginate="airline in miniairlines | itemsPerPage: perPage" total-items="flights.count">
                 <div class="col-xs-4">
                     <div class="thumbnail" ng-click="showList(airline)">
-                        <img src="icons/airlines/{{airline.icon}}" class="img-responsive" alt="...">
+                        <img ng-src="/icons/airlines/{{airline.icon}}.png" class="img-responsive" alt="...">
                         <div class="caption">
                             <p>{{airline.name}}</p>
                         </div>
@@ -64,6 +64,7 @@
                         <div ng-click="showInfoBox(flight)">
                             <h2>{{flight.flight_id}} - {{flight.airport_name}}</h2>
                             <p>Gate: {{getGate(flight)}} Boarding: {{flight.schedule_time | date:"h:mm"}}</p>
+                            <hr/>
                         </div>
                     </li>
                 </ul>

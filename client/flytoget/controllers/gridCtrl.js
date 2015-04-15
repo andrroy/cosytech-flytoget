@@ -14,8 +14,7 @@ angular.module('trickle-webapp').controller("gridCtrl",['$scope', '$meteor', '$s
         $scope.orderProperty = '1';
 
         // Shorthand version for subscribing - does not allow parameters to be added.
-        //$scope.airlines = $meteor.collection(Airlines).subscribe("airlines");        console.log($scope.airlines);
-        $scope.miniairlines = $meteor.collection(MiniAirlines).subscribe("mini-airlines");
+        $scope.miniairlines = $meteor.collection(MiniAirlines, false).subscribe("mini-airlines");
 
         // Long version with sorting parameters
         $scope.airlines = $meteor.collection(function(){
