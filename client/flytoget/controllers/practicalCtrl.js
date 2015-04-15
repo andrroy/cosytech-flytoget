@@ -1,5 +1,8 @@
-angular.module('trickle-webapp').controller("infoCtrl",['$scope', '$meteor', '$http',
-    function($scope, $meteor, $http){
+angular.module('trickle-webapp').controller("infoCtrl",['$scope', '$meteor', '$http',  '$stateParams', 'AppData',
+    function($scope, $meteor, $http, $stateParams, AppData){
+
+        AppData.setName($stateParams.slug)
+
 
         $scope.webcamFeed = "img/camfeed.jpeg";
 

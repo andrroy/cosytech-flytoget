@@ -9,7 +9,9 @@
 body, html {
   width: 100%;
   height: 100%;
+
 }
+
 
 body {
   font-family: "Lato",sans-serif;
@@ -21,6 +23,68 @@ body {
   font-size: 20px;
   -webkit-font-smoothing: antialiased;
   line-height: 1.42857143;
+}
+
+#flightSection{
+  margin-top: -15px;
+  height: 90px;
+  background-color: @cosy-orange-dk;
+}
+
+.flightInfo{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding-top: 20px;
+  justify-content: space-around;
+
+  color: white;
+
+  text-align: center;
+  line-height: 1.2em;
+}
+
+.icon{
+  width: 60px;
+  height: 60px;
+}
+
+.acent{
+  .icon;
+}
+.decent{
+  .icon;
+}
+
+.hero h1{
+  font-weight: 600;
+  color: white;
+  text-transform: none;
+}
+
+.hero h3{
+  text-transform: none;
+  font-weight: 500;
+  color: white;
+}
+
+.small-icon {
+  width: 40px;
+  height: 40px;
+}
+
+
+
+.searchbar{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.separator{
+  height: 50px;
+  width: 1px;
+  border-left: solid 1px @cosy-orange-dker;
 }
 
 ul{
@@ -44,20 +108,69 @@ ul{
   margin-right: 20px;
 }
 
+.paginationControls{
+  background-color: #f16949;
+  margin: 0 auto;
+  float: none;
+}
+
+.flightList{
+}
+
+.flight-list-item{
+  //.underline(@cosy-grey-lt);
+}
+
+.hero{
+  background: url("/img/plane2.jpg") no-repeat center center;
+  background-size: cover;
+  z-index: -43;
+  margin-top: -10px;
+  height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.shadow{
+  text-shadow: 0px 0px 21px rgba(150, 150, 150, 0.94);
+}
+
+.thin{
+  font-weight: 200;
+}
+
+.block{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.block img{
+  float: left;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
 .header{
-  /*background: url("/img/header-lines.svg") no-repeat center center; */
   background: url("/img/bg_top.png") no-repeat center center;
   //background-color: transparent;
   color: white;
   background-size: cover;
   height: 100px;
+  width: 100%;
   max-height: 250px;
 
   text-align: center;
 
-  -webkit-box-shadow: 0px 8px 10px 0px rgba(0,0,0,0.35);
-  -moz-box-shadow: 0px 8px 10px 0px rgba(0,0,0,0.35);
-  box-shadow: 0px 8px 10px 0px rgba(0,0,0,0.35);
+  -webkit-box-shadow: 0 8px 10px 0 rgba(0,0,0,0.35);
+  -moz-box-shadow: 0 8px 10px 0 rgba(0,0,0,0.35);
+  box-shadow: 0 8px 10px 0 rgba(0,0,0,0.35);
 }
 
 .article{
@@ -72,6 +185,46 @@ ul{
 .header-lg {
   .header;
   height: 150px;
+  background-color: #00747e;
+}
+
+.header-sm {
+  .header;
+  text-align: center;
+  color: @white;
+
+  -webkit-box-shadow: 0 8px 10px 0 rgba(0,0,0,0.35);
+  -moz-box-shadow: 0 8px 10px 0 rgba(0,0,0,0.35);
+  box-shadow: 0 8px 10px 0 rgba(0,0,0,0.35);
+
+  h1{
+    color: white;
+  }
+
+}
+
+.backArrow{
+  align-self: baseline;
+  padding-top: 20px;
+
+  a{
+    font-size: 1.4em;
+  }
+}
+
+.heading{
+  margin-left: -20px;
+  align-self: baseline;
+}
+
+.header-sm-text{
+  margin-top: 10px;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.empty{
 }
 
 .header-wrapper{
@@ -90,7 +243,7 @@ ul{
 
 .greeting{
   order: 1;
-  font-size: 3vmin;
+  font-size: 1.4em;
 
   //background-color: #f16949;
 }
@@ -99,7 +252,6 @@ ul{
   order: 2;
 
   width: 90%;
-
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -109,12 +261,6 @@ ul{
   //background-color: #399fbd;
 }
 
-#weather-icon{
-  //background-color: #399fbd;
-  //font-size: 2em;
-  //order:1;
-
-}
 #weather-text{
   order:2;
 }
@@ -184,13 +330,24 @@ a, a:hover{
   font-weight: 300;
 }
 
+.filter{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background-color: #000000;
+  opacity: 0.2;
+}
+
 .menuWrapper{
   background: url("img/bg.jpg") no-repeat left center;
+
   background-size: auto;
-  //background-color: #399fbd;
-  position: absolute;
+  position: fixed;
   width: 100%;
   z-index: -100;
+  margin-left: -15px;
   top: 0;
   bottom: 0;
 }
@@ -200,9 +357,13 @@ a, a:hover{
   height: 60px;
 }
 
-#trickle-logo {
-  float:right;
-  margin-right: 5vmax;
+.bottom-logo{
+  width: 10%;
+  margin: 0 auto;
+}
+
+#trickle-logo img{
+  width: 100%;
 }
 
 
@@ -225,13 +386,12 @@ input:focus{
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 
 
   color: #FFFFFF;
   width: 80%;
   height: 100%;
-  padding: 10px;
 
   border-radius: 120px;
   -webkit-border-radius: 120px;
@@ -250,9 +410,14 @@ input:focus{
   font-size: 40px;
 }
 
+.circular{
+  width: 100%;
+  height: 100%;
+}
 
 
 .menu-text{
+  padding-left: 40px;
   order: 1;
   font-size: 25px;
 }
@@ -260,8 +425,7 @@ input:focus{
 .weather-icon {
   width: 20%;
   height: 20%;
-  max-width: 128px;
-  max-height: 128px;
+  max-width: 60px;
 }
 
 .pagination{
@@ -278,6 +442,11 @@ input:focus{
 .menu-empty button{
   background-color: transparent;
   border: none;
+}
+
+.space{
+  height: 20px;
+  width: 100%;
 }
 
 .container {
@@ -316,9 +485,17 @@ input:focus{
 /* Practical view */
 
 .image-wrapper {
-  position: relative;
+  margin-top: -10px;
+
   margin-left: auto;
   margin-right: auto;
+
+  -webkit-box-shadow: inset 0 8px 10px 0 rgba(0,0,0,0.35);
+  -moz-box-shadow: inset 0 8px 10px 0 rgba(0,0,0,0.35);
+  box-shadow: inset 0 8px 10px 0 rgba(0,0,0,0.35);
+
+
+  background-color: #f16949;
 
   img {
     max-width: 100%;
@@ -334,6 +511,8 @@ input:focus{
   background: rgba(0, 0, 0, .5);
   font-size: 0.6em;
   margin-bottom: 0;
+
+
 }
 
 @media (min-width: 640px) {

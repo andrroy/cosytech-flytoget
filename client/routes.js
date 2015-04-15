@@ -41,7 +41,6 @@ angular.module("trickle-webapp").config(['$urlRouterProvider', '$stateProvider',
                         return $stateParams.slug + "Ctrl";
                     }
 
-
                     var ctrlName = "gridCtrl"; // TODO: Fix this.
                     console.log("navigating to " + ctrlName);
                     return ctrlName;
