@@ -3,14 +3,15 @@
 <div class="content">
 
     <div ng-repeat="entry in newsEntries | orderBy: '-date'">
-        <article class="article" >
-            <small class="meta" ng-bind="entry.date | date:'H:mm, MM/dd/yyyy'"></small>
-            <br/>
-            <a href="{{entry.link}}">
-                <p>{{entry.summary}}</p>
-            </a>
-        </article>
         <hr>
+        <article class="article" >
+            <div class="meta orange">{{entry.date | date:'H:mm, MM/dd/yyyy'}}</div>
+            <div class="article-text">
+                <a href="{{entry.link}}">
+                    <p>{{entry.summary}}</p>
+                </a>
+            </div>
+        </article>
     </div>
 
 </div>
